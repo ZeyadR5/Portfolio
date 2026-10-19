@@ -110,10 +110,11 @@
             </div>
 
             <!-- Mobile menu button -->
-            <div class="flex items-center gap-3 lg:hidden">
-                <button onclick="openCvModal()" class="px-3 py-1.5 rounded-lg bg-blue-600 text-white text-xs font-semibold shadow hover:bg-blue-700">
-                    CV
-                </button>
+            <div class="flex items-center gap-2 lg:hidden">
+                <a href="./Zeyad_Yasser_CV.pdf" download="Zeyad_Yasser_CV.pdf" class="px-2.5 py-1.5 rounded-lg bg-blue-600 text-white text-xs font-bold shadow flex items-center gap-1">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+                    <span>CV</span>
+                </a>
                 <button id="menu-btn" class="p-2 rounded-lg text-gray-600 hover:text-gray-900 hover:bg-gray-100 focus:outline-none">
                     <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
@@ -135,14 +136,18 @@
                 <a href="#contact" class="hover:text-blue-600 transition-colors">Contact</a>
             </div>
 
-            <!-- Actions: View CV & Language Switcher -->
-            <div class="hidden lg:flex items-center gap-3">
-                <button id="lang-toggle-btn" class="px-3 py-1.5 rounded-lg border border-gray-200 hover:bg-gray-50 text-xs font-semibold text-gray-700 transition">
+            <!-- Actions: Download CV + View CV + Language Switcher -->
+            <div class="hidden lg:flex items-center gap-2.5">
+                <button id="lang-toggle-btn" class="px-2.5 py-1.5 rounded-lg border border-gray-200 hover:bg-gray-50 text-xs font-semibold text-gray-700 transition">
                     <span id="lang-label">عربي</span>
                 </button>
-                <button onclick="openCvModal()" class="px-4 py-2 rounded-lg bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white text-xs font-bold shadow-md hover:shadow-lg transition-all flex items-center gap-1.5">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
-                    <span>View CV</span>
+                <a href="./Zeyad_Yasser_CV.pdf" download="Zeyad_Yasser_CV.pdf" class="px-3.5 py-2 rounded-lg bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold shadow-md hover:shadow-lg transition-all flex items-center gap-1.5">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+                    <span>Download CV</span>
+                </a>
+                <button onclick="openCvModal()" class="px-3 py-2 rounded-lg border border-gray-300 hover:bg-gray-50 text-gray-700 text-xs font-semibold transition flex items-center gap-1">
+                    <svg class="w-3.5 h-3.5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+                    <span>View</span>
                 </button>
             </div>
         </nav>
@@ -156,9 +161,13 @@
             <a href="#Skills" class="block font-semibold text-gray-700 hover:text-blue-600">Skills & Tech Stack</a>
             <a href="#service" class="block font-semibold text-gray-700 hover:text-blue-600">Services</a>
             <a href="#contact" class="block font-semibold text-gray-700 hover:text-blue-600">Contact</a>
-            <div class="pt-3 border-t border-gray-100 flex gap-2">
-                <button onclick="openCvModal()" class="w-full py-2.5 rounded-lg bg-blue-600 text-white font-bold text-xs shadow text-center">
-                    Review Full CV
+            <div class="pt-3 border-t border-gray-100 flex flex-col gap-2">
+                <a href="./Zeyad_Yasser_CV.pdf" download="Zeyad_Yasser_CV.pdf" class="w-full py-2.5 rounded-lg bg-blue-600 text-white font-bold text-xs shadow text-center flex items-center justify-center gap-2">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+                    <span>Download Official CV (PDF)</span>
+                </a>
+                <button onclick="openCvModal()" class="w-full py-2 rounded-lg border border-gray-300 text-gray-700 font-semibold text-xs text-center">
+                    View CV in Browser
                 </button>
             </div>
         </div>
@@ -214,28 +223,32 @@
                 </div>
 
                 <!-- Buttons -->
-                <div class="pt-4 flex flex-wrap items-center justify-center lg:justify-start gap-4">
-                    <a href="#Projects" class="rounded-lg bg-gradient-to-r from-blue-600 to-indigo-600 px-6 py-3 text-sm font-semibold text-white shadow-md hover:from-blue-700 hover:to-indigo-700 transition btn-hover-effect">
+                <div class="pt-4 flex flex-wrap items-center justify-center lg:justify-start gap-3">
+                    <a href="#Projects" class="rounded-lg bg-gradient-to-r from-blue-600 to-indigo-600 px-5 py-3 text-sm font-semibold text-white shadow-md hover:from-blue-700 hover:to-indigo-700 transition btn-hover-effect">
                         Explore 21 Projects
                     </a>
-                    <button onclick="openCvModal()" class="rounded-lg bg-white border border-gray-300 px-6 py-3 text-sm font-semibold text-gray-700 shadow-sm hover:bg-gray-50 transition flex items-center gap-2">
-                        <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
-                        <span>View Updated CV</span>
+                    <a href="./Zeyad_Yasser_CV.pdf" download="Zeyad_Yasser_CV.pdf" class="rounded-lg bg-blue-600 hover:bg-blue-700 text-white px-5 py-3 text-sm font-bold shadow-md transition flex items-center gap-2">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+                        <span>Download CV (PDF)</span>
+                    </a>
+                    <button onclick="openCvModal()" class="rounded-lg bg-white border border-gray-300 px-4 py-3 text-sm font-semibold text-gray-700 shadow-sm hover:bg-gray-50 transition flex items-center gap-1.5">
+                        <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+                        <span>View CV</span>
                     </button>
-                    <a href="https://wa.me/201024474059" target="_blank" class="rounded-lg bg-green-600 text-white px-5 py-3 text-sm font-semibold shadow-md hover:bg-green-700 transition flex items-center gap-2">
+                    <a href="https://wa.me/201024474059" target="_blank" class="rounded-lg bg-green-600 text-white px-4 py-3 text-sm font-semibold shadow-md hover:bg-green-700 transition flex items-center gap-1.5">
                         <span>WhatsApp</span>
                     </a>
                 </div>
             </div>
 
-            <!-- Right Hero Visual: User's Requested Photo with Blob Styling -->
+            <!-- Right Hero Visual: User's Requested Photo with Clean Framing -->
             <div class="lg:col-span-5 flex justify-center" data-aos="fade-left">
                 <div class="relative">
                     <!-- Subtle Glow -->
-                    <div class="absolute inset-0 bg-blue-200 rounded-full filter blur-3xl opacity-50"></div>
-                    <!-- Photo inside the original blob animation with modern shadow -->
-                    <div class="relative w-72 sm:w-80 md:w-96 overflow-hidden blob bg-gradient-to-tr from-blue-500 via-indigo-500 to-purple-500 p-1.5 shadow-2xl">
-                        <img src="./ZEYAD.jpg" alt="Zeyad Yasser" class="w-full h-auto object-cover blob" />
+                    <div class="absolute inset-0 bg-blue-200 rounded-3xl filter blur-3xl opacity-50"></div>
+                    <!-- Photo inside sleek rounded container with gradient border -->
+                    <div class="relative w-72 sm:w-80 md:w-88 overflow-hidden rounded-3xl shadow-2xl border-4 border-white bg-gradient-to-tr from-blue-500 via-indigo-500 to-purple-500 p-1">
+                        <img src="./zeyad_profile.jpg" alt="Zeyad Yasser" class="w-full h-auto object-cover rounded-[22px] hover-grow" />
                     </div>
                 </div>
             </div>
@@ -779,59 +792,73 @@
     </footer>
 
     <!-- INTERACTIVE CV MODAL (FULL UPDATED RESUME) -->
-    <div id="cv-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-70 backdrop-blur-sm hidden">
-        <div class="relative w-full max-w-4xl max-h-[90vh] flex flex-col bg-white rounded-2xl shadow-2xl overflow-hidden" id="cv-modal-content">
+    <div id="cv-modal" class="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black bg-opacity-70 backdrop-blur-sm hidden overflow-y-auto">
+        <div class="relative w-full max-w-2xl max-h-[86vh] my-auto flex flex-col bg-white rounded-2xl shadow-2xl overflow-hidden" id="cv-modal-content">
             
             <!-- Header (no-print) -->
-            <div class="p-4 sm:p-6 border-b border-gray-200 flex items-center justify-between bg-gray-50 no-print">
-                <div class="flex items-center gap-3">
-                    <span class="text-2xl">📄</span>
+            <div class="px-4 py-3 sm:px-6 sm:py-3.5 border-b border-gray-200 flex items-center justify-between bg-gray-50 no-print flex-shrink-0">
+                <div class="flex items-center gap-2">
+                    <span class="text-xl">📄</span>
                     <div>
-                        <h2 class="text-lg font-bold text-gray-900">Curriculum Vitae — Zeyad Yasser</h2>
-                        <p class="text-xs text-gray-500">Updated Resume & Professional Credentials</p>
+                        <h2 class="text-sm sm:text-base font-bold text-gray-900 leading-tight">Curriculum Vitae — Zeyad Yasser</h2>
+                        <p class="text-[11px] text-gray-500">Official Resume</p>
                     </div>
                 </div>
                 <div class="flex items-center gap-2">
-                    <button onclick="window.print()" class="px-3 py-1.5 rounded-lg bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold flex items-center gap-1 shadow">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
-                        <span>Print / Save PDF</span>
+                    <a href="./Zeyad_Yasser_CV.pdf" download="Zeyad_Yasser_CV.pdf" class="px-3 py-1.5 rounded-lg bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold flex items-center gap-1 shadow">
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+                        <span>Download PDF</span>
+                    </a>
+                    <button onclick="window.print()" class="hidden sm:flex px-2.5 py-1.5 rounded-lg bg-gray-100 hover:bg-gray-200 text-gray-700 text-xs font-semibold items-center gap-1">
+                        <span>Print</span>
                     </button>
-                    <button onclick="closeCvModal()" class="p-2 text-gray-400 hover:text-gray-700 rounded-lg">
+                    <button onclick="closeCvModal()" class="p-1.5 text-gray-400 hover:text-gray-700 rounded-lg">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
                     </button>
                 </div>
             </div>
 
             <!-- CV Document Content -->
-            <div class="p-6 sm:p-10 overflow-y-auto space-y-6 text-gray-800 text-sm leading-relaxed" id="cv-print-area">
+            <div class="p-4 sm:p-6 overflow-y-auto space-y-4 text-gray-800 text-xs sm:text-sm leading-relaxed" id="cv-print-area">
                 
+                <!-- Quick Download Notice Banner -->
+                <div class="bg-blue-50 border border-blue-200 rounded-xl p-3 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs no-print">
+                    <div class="flex items-center gap-2 text-blue-900 font-medium text-center sm:text-left">
+                        <span>📌 Download the official formatted PDF resume:</span>
+                    </div>
+                    <a href="./Zeyad_Yasser_CV.pdf" download="Zeyad_Yasser_CV.pdf" class="w-full sm:w-auto px-4 py-1.5 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-bold shadow text-center flex items-center justify-center gap-1.5">
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+                        <span>Download Official PDF</span>
+                    </a>
+                </div>
+
                 <!-- CV Title Header -->
-                <div class="border-b border-gray-300 pb-4 text-center sm:text-left flex flex-col sm:flex-row justify-between items-center gap-4">
+                <div class="border-b border-gray-300 pb-3 text-center sm:text-left flex flex-col sm:flex-row justify-between items-center gap-3">
                     <div>
-                        <h1 class="text-2xl sm:text-3xl font-extrabold text-gray-900">ZEYAD YASSER ABDALLAH OWEIS</h1>
-                        <p class="text-blue-600 font-bold text-sm mt-0.5">
+                        <h1 class="text-xl sm:text-2xl font-extrabold text-gray-900">ZEYAD YASSER ABDALLAH OWEIS</h1>
+                        <p class="text-blue-600 font-bold text-xs sm:text-sm mt-0.5">
                             IT Technical Support Team Leader | Multi-Branch IT Operations | System Administration | Laravel Developer
                         </p>
-                        <p class="text-xs text-gray-600 mt-1">+20 102 447 4059 | zeyady2233@gmail.com | Beni Suef, Egypt</p>
+                        <p class="text-[11px] sm:text-xs text-gray-600 mt-0.5">+20 102 447 4059 | zeyady2233@gmail.com | Beni Suef, Egypt</p>
                     </div>
-                    <div class="text-xs text-gray-600 space-y-1 sm:text-right">
-                        <div>LinkedIn: <a href="https://linkedin.com/in/zeyad-yasser-213312297" target="_blank" class="text-blue-600">zeyad-yasser-213312297</a></div>
-                        <div>GitHub: <a href="https://github.com/ZeyadR5" target="_blank" class="text-blue-600">github.com/ZeyadR5</a></div>
+                    <div class="text-[11px] sm:text-xs text-gray-600 space-y-0.5 sm:text-right">
+                        <div>LinkedIn: <a href="https://linkedin.com/in/zeyad-yasser-213312297" target="_blank" class="text-blue-600 font-semibold">zeyad-yasser</a></div>
+                        <div>GitHub: <a href="https://github.com/ZeyadR5" target="_blank" class="text-blue-600 font-semibold">github.com/ZeyadR5</a></div>
                     </div>
                 </div>
 
                 <!-- Summary -->
                 <div class="space-y-1">
-                    <h2 class="text-xs font-bold text-blue-700 uppercase tracking-wider border-b border-gray-200 pb-1">PROFESSIONAL SUMMARY</h2>
-                    <p class="text-xs sm:text-sm text-gray-700 leading-relaxed">
+                    <h2 class="text-xs font-bold text-blue-700 uppercase tracking-wider border-b border-gray-200 pb-0.5">PROFESSIONAL SUMMARY</h2>
+                    <p class="text-xs text-gray-700 leading-relaxed">
                         IT Technical Support Team Leader with hands-on experience leading multi-branch IT operations for Gamma Scan Center, supporting medical imaging environments, administering servers, stabilizing networks, and delivering reliable technical support across daily business operations. Experienced in wireless branch connectivity, server and backup administration, printers, surveillance, access control, hardware troubleshooting, and database fundamentals. Full-stack practical background with focus on <b>Laravel</b>, <b>PHP</b>, systems reliability, and fast issue resolution.
                     </p>
                 </div>
 
                 <!-- Career Highlights -->
                 <div class="space-y-1">
-                    <h2 class="text-xs font-bold text-blue-700 uppercase tracking-wider border-b border-gray-200 pb-1">CAREER HIGHLIGHTS</h2>
-                    <ul class="text-xs sm:text-sm text-gray-700 list-disc list-inside space-y-1">
+                    <h2 class="text-xs font-bold text-blue-700 uppercase tracking-wider border-b border-gray-200 pb-0.5">CAREER HIGHLIGHTS</h2>
+                    <ul class="text-xs text-gray-700 list-disc list-inside space-y-0.5">
                         <li>Manage IT operations for 4 Gamma Scan Center branches: Beni Suef El Zeraeyeen, Beni Suef Salah Salem, El Fashn, and Al-Khulafa Al-Rashideen Hospital branch in Cairo.</li>
                         <li>Built and configured stable point-to-point connectivity between the two Beni Suef branches using NanoStation and PowerBeam devices.</li>
                         <li>Rebuilt, organized, and stabilized the main branch network from the ground up, improving reliability, efficiency, and daily operational readiness.</li>
@@ -841,17 +868,17 @@
                 </div>
 
                 <!-- Professional Experience -->
-                <div class="space-y-3">
-                    <h2 class="text-xs font-bold text-blue-700 uppercase tracking-wider border-b border-gray-200 pb-1">PROFESSIONAL EXPERIENCE</h2>
+                <div class="space-y-2.5">
+                    <h2 class="text-xs font-bold text-blue-700 uppercase tracking-wider border-b border-gray-200 pb-0.5">PROFESSIONAL EXPERIENCE</h2>
 
                     <div>
-                        <div class="flex justify-between items-baseline font-bold text-gray-900 text-sm">
+                        <div class="flex justify-between items-baseline font-bold text-gray-900 text-xs sm:text-sm">
                             <span>IT Technical Support Team Leader — Gamma Scan Center</span>
-                            <span class="text-xs text-blue-600">2023 – Present</span>
+                            <span class="text-[11px] text-blue-600">2023 – Present</span>
                         </div>
-                        <div class="text-xs font-semibold text-gray-600 mb-1">Beni Suef & Cairo, Egypt</div>
-                        <ul class="text-xs text-gray-700 list-disc list-inside space-y-1">
-                            <li>Lead IT operations and support across 4 branches.</li>
+                        <div class="text-[11px] font-semibold text-gray-500 mb-0.5">Beni Suef & Cairo, Egypt (4 Branches)</div>
+                        <ul class="text-xs text-gray-700 list-disc list-inside space-y-0.5">
+                            <li>Lead IT operations and support across 4 medical branches.</li>
                             <li>Designed, installed, and configured the wireless link between branches using NanoStation and PowerBeam devices.</li>
                             <li>Rebuilt and handled full main branch network organization, device setup, troubleshooting, and stability.</li>
                             <li>Administer and support 4 servers: print server, Millensys PACS server, Veeam backup server, and database server.</li>
@@ -861,13 +888,13 @@
                     </div>
 
                     <div>
-                        <div class="flex justify-between items-baseline font-bold text-gray-900 text-sm">
+                        <div class="flex justify-between items-baseline font-bold text-gray-900 text-xs sm:text-sm">
                             <span>System Administrator / IT Support — Al Marwa Hotel & Restaurant</span>
-                            <span class="text-xs text-blue-600">2023 – 2024</span>
+                            <span class="text-[11px] text-blue-600">2023 – 2024</span>
                         </div>
-                        <div class="text-xs font-semibold text-gray-600 mb-1">Beni Suef, Egypt</div>
-                        <ul class="text-xs text-gray-700 list-disc list-inside space-y-1">
-                            <li>Designed and implemented the hotel IT system, converting paper-based workflows into digital operational processes.</li>
+                        <div class="text-[11px] font-semibold text-gray-500 mb-0.5">Beni Suef, Egypt</div>
+                        <ul class="text-xs text-gray-700 list-disc list-inside space-y-0.5">
+                            <li>Designed and implemented the hotel IT system, converting paper-based workflows into digital processes.</li>
                             <li>Provided IT support for users, devices, network connectivity, and daily issues.</li>
                             <li>Configured network and reservation-related systems to support front-desk workflows.</li>
                             <li>Trained staff on system usage and basic troubleshooting.</li>
@@ -877,8 +904,8 @@
 
                 <!-- Core Skills & Tools -->
                 <div class="space-y-1">
-                    <h2 class="text-xs font-bold text-blue-700 uppercase tracking-wider border-b border-gray-200 pb-1">CORE SKILLS</h2>
-                    <div class="text-xs text-gray-700 grid grid-cols-1 sm:grid-cols-2 gap-2">
+                    <h2 class="text-xs font-bold text-blue-700 uppercase tracking-wider border-b border-gray-200 pb-0.5">CORE SKILLS</h2>
+                    <div class="text-xs text-gray-700 grid grid-cols-1 sm:grid-cols-2 gap-1.5">
                         <div><b>IT Operations:</b> Multi-branch support, technical leadership, incident handling, vendor coordination.</div>
                         <div><b>Networking:</b> Setup & troubleshooting, wireless P2P links (NanoStation, PowerBeam), switching, access points.</div>
                         <div><b>Systems & Servers:</b> Windows Server, Print server, Millensys PACS, Veeam backup server, Database server.</div>
@@ -890,8 +917,8 @@
 
                 <!-- Internships & Training -->
                 <div class="space-y-1">
-                    <h2 class="text-xs font-bold text-blue-700 uppercase tracking-wider border-b border-gray-200 pb-1">INTERNSHIPS & TRAINING</h2>
-                    <ul class="text-xs text-gray-700 space-y-1 list-disc list-inside">
+                    <h2 class="text-xs font-bold text-blue-700 uppercase tracking-wider border-b border-gray-200 pb-0.5">INTERNSHIPS & TRAINING</h2>
+                    <ul class="text-xs text-gray-700 space-y-0.5 list-disc list-inside">
                         <li><b>IT Infrastructure Trainee:</b> Drinking Water & Sanitation Company | 2 Months (Data center layouts, switching systems, network configuration).</li>
                         <li><b>Visual Basic Project Trainee:</b> Al-Azhar Organization | 2 Months (Received recognition for excellence).</li>
                         <li><b>Machine Learning Trainee:</b> Beni Suef Technological University (ML & data science concepts).</li>
@@ -899,9 +926,9 @@
                 </div>
 
                 <!-- Education & Certifications -->
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
                     <div>
-                        <h2 class="text-xs font-bold text-blue-700 uppercase tracking-wider border-b border-gray-200 pb-1">EDUCATION</h2>
+                        <h2 class="text-xs font-bold text-blue-700 uppercase tracking-wider border-b border-gray-200 pb-0.5">EDUCATION</h2>
                         <p class="text-xs text-gray-700 mt-1">
                             <b>Bachelor's Degree in IT - Software Specialization</b><br>
                             Beni Suef Technological University, Egyptian College of Industry & Energy Technology<br>
@@ -909,7 +936,7 @@
                         </p>
                     </div>
                     <div>
-                        <h2 class="text-xs font-bold text-blue-700 uppercase tracking-wider border-b border-gray-200 pb-1">CERTIFICATIONS</h2>
+                        <h2 class="text-xs font-bold text-blue-700 uppercase tracking-wider border-b border-gray-200 pb-0.5">CERTIFICATIONS</h2>
                         <p class="text-xs text-gray-700 mt-1">
                             • CCNA - Cisco<br>
                             • MCSA - Microsoft<br>
@@ -921,9 +948,12 @@
             </div>
 
             <!-- Footer (no-print) -->
-            <div class="p-4 bg-gray-50 border-t border-gray-200 flex justify-between items-center no-print">
-                <span class="text-xs text-gray-500">Zeyad Yasser — Updated Official Resume</span>
-                <button onclick="closeCvModal()" class="px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-700 rounded-lg text-xs font-semibold">
+            <div class="px-4 py-3 bg-gray-50 border-t border-gray-200 flex justify-between items-center no-print flex-shrink-0">
+                <a href="./Zeyad_Yasser_CV.pdf" download="Zeyad_Yasser_CV.pdf" class="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg text-xs font-bold shadow flex items-center gap-1.5 transition">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+                    <span>Download Official PDF Resume</span>
+                </a>
+                <button onclick="closeCvModal()" class="px-3.5 py-1.5 bg-gray-200 hover:bg-gray-300 text-gray-700 rounded-lg text-xs font-semibold">
                     Close
                 </button>
             </div>
