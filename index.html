@@ -1,758 +1,1817 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
-    <!-- <script src="https://cdn.jsdelivr.net/npm/@headlessui/react@1.7.16/dist/headlessui.umd.min.js"></script> -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <title>Portfolio - Zeyad Yasser</title>
-    <style>
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        
-        @keyframes slideInFromTop {
-            from { transform: translateY(-50px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-        
-        @keyframes slideInFromBottom {
-            from { transform: translateY(50px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-        
-        @keyframes slideInFromLeft {
-            from { transform: translateX(-50px); opacity: 0; }
-            to { transform: translateX(0); opacity: 1; }
-        }
-        
-        @keyframes slideInFromRight {
-            from { transform: translateX(50px); opacity: 0; }
-            to { transform: translateX(0); opacity: 1; }
-        }
-        
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
-        
-        .animate-fade-in {
-            animation: fadeIn 1s ease-in-out;
-        }
-        
-        .animate-slide-top {
-            animation: slideInFromTop 0.8s ease-out;
-        }
-        
-        .animate-slide-bottom {
-            animation: slideInFromBottom 0.8s ease-out;
-        }
-        
-        .animate-slide-left {
-            animation: slideInFromLeft 0.8s ease-out;
-        }
-        
-        .animate-slide-right {
-            animation: slideInFromRight 0.8s ease-out;
-        }
-        
-        .animate-pulse {
-            animation: pulse 2s infinite;
-        }
-        
-        .blob {
-            animation: blob-animation 10s infinite alternate;
-        }
-        
-        @keyframes blob-animation {
-            0% { border-radius: 60% 40% 30% 70%/60% 30% 70% 40%; }
-            50% { border-radius: 30% 60% 70% 40%/50% 60% 30% 60%; }
-            100% { border-radius: 60% 40% 30% 70%/60% 30% 70% 40%; }
-        }
-        
-        .skill-bar-fill {
-            transition: width 1.5s ease-in-out;
-        }
-        
-        .hover-grow {
-            transition: transform 0.3s ease;
-        }
-        
-        .hover-grow:hover {
-            transform: scale(1.03);
-        }
-        
-        .btn-hover-effect {
-            transition: all 0.3s ease;
-            background-size: 200% auto;
-        }
-        
-        .btn-hover-effect:hover {
-            background-position: right center;
-        }
-        
-        @keyframes floating {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-15px); }
-            100% { transform: translateY(0px); }
-        }
-        
-        .floating {
-            animation: floating 3s ease-in-out infinite;
-        }
-
-        /* Mobile specific styles */
-        @media (max-width: 1023px) {
-            .mobile-logo {
-                display: flex;
-                justify-content: center;
-                margin-top: 2rem;
-                margin-bottom: 2rem;
-            }
-            .mobile-logo img {
-                height: 120px;
-                width: auto;
-            }
-            .mobile-content {
-                padding-top: 1rem;
-            }
-            
-            /* Ensure mobile menu button is visible */
-            .mobile-menu-button {
-                display: inline-flex !important;
-                z-index: 50;
-            }
-            
-            /* Mobile menu styles */
-            #mobile-menu {
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background-color: rgba(0, 0, 0, 0.5);
-                z-index: 40;
-                display: none;
-            }
-            
-            #mobile-menu.active {
-                display: block;
-            }
-            
-            #mobile-menu-content {
-                position: fixed;
-                top: 0;
-                right: 0;
-                width: 80%;
-                max-width: 300px;
-                height: 100%;
-                background-color: white;
-                padding: 1rem;
-                box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
-                transform: translateX(100%);
-                transition: transform 0.3s ease;
-                overflow-y: auto;
-            }
-            
-            #mobile-menu.active #mobile-menu-content {
-                transform: translateX(0);
-            }
-            
-            .mobile-menu-header {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                padding-bottom: 1rem;
-                border-bottom: 1px solid #eee;
-                margin-bottom: 1rem;
-            }
-            
-            .mobile-menu-links {
-                display: flex;
-                flex-direction: column;
-                gap: 0.5rem;
-            }
-            
-            .mobile-menu-links a {
-                padding: 0.75rem 1rem;
-                border-radius: 0.5rem;
-                color: #333;
-                font-weight: 500;
-            }
-            
-            .mobile-menu-links a:hover {
-                background-color: #f5f5f5;
-            }
-        }
-        
-        @media (min-width: 1024px) {
-            #mobile-menu {
-                display: none !important;
-            }
-        }
-        </style>
-</head>
-<body class="overflow-x-hidden">
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <title>Zeyad Yasser | IT Systems Administrator & Software Engineer</title>
+    <meta name="description" content="Portfolio of Zeyad Yasser - IT Operations & System Administrator, Software Developer, Medical IT & PACS/RIS Specialist, and QA Tester.">
+    <!-- Google Fonts: Plus Jakarta Sans & Cairo for Arabic -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Initialize AOS if it exists
-            if (typeof AOS !== 'undefined') {
-                AOS.init({
-                    duration: 800,
-                    easing: 'ease-in-out',
-                    once: true,
-                    mirror: false
-                });
-            }
-
-            // Mobile menu functionality
-            const menuBtn = document.getElementById('menu-btn');
-            const mobileMenu = document.getElementById('mobile-menu');
-            const closeMenuBtn = document.getElementById('close-menu-button');
-            
-            // Toggle menu when clicking the burger button
-            if (menuBtn && mobileMenu) {
-                menuBtn.addEventListener('click', function() {
-                    mobileMenu.classList.toggle('active');
-                    document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : 'auto';
-                });
-            }
-            
-            // Close menu when clicking the close button
-            if (closeMenuBtn && mobileMenu) {
-                closeMenuBtn.addEventListener('click', function() {
-                    mobileMenu.classList.remove('active');
-                    document.body.style.overflow = 'auto';
-                });
-            }
-            
-            // Close menu when clicking outside
-            if (mobileMenu) {
-                mobileMenu.addEventListener('click', function(e) {
-                    if (e.target === mobileMenu) {
-                        mobileMenu.classList.remove('active');
-                        document.body.style.overflow = 'auto';
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                        },
+                        medical: {
+                            500: '#14b8a6',
+                            600: '#0d9488',
+                        },
+                        accent: {
+                            500: '#6366f1',
+                            600: '#4f46e5',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+                        arabic: ['"Cairo"', 'sans-serif'],
+                        mono: ['"JetBrains Mono"', 'monospace'],
                     }
-                });
-            }
-
-            // Close menu when clicking on any menu link
-            if (mobileMenu) {
-                const menuLinks = mobileMenu.querySelectorAll('a');
-                menuLinks.forEach(link => {
-                    link.addEventListener('click', function() {
-                        mobileMenu.classList.remove('active');
-                        document.body.style.overflow = 'auto';
-                    });
-                });
-            }
-
-            // Skill bars animation
-            function setupSkillBars() {
-                const skillBars = document.querySelectorAll('.skill-bar-fill');
-                if (skillBars.length === 0) return;
-
-                const animateSkillBars = () => {
-                    skillBars.forEach(bar => {
-                        const width = bar.getAttribute('data-width');
-                        if (width) {
-                            bar.style.width = width;
-                        }
-                    });
-                };
-
-                const observer = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            animateSkillBars();
-                            observer.unobserve(entry.target);
-                        }
-                    });
-                }, { threshold: 0.5 });
-
-                const skillsSection = document.querySelector('#Skills');
-                if (skillsSection) {
-                    observer.observe(skillsSection);
                 }
             }
-
-            // Initialize functions
-            setupSkillBars();
-        });
+        }
     </script>
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+            background-color: #090d16;
+            color: #e2e8f0;
+        }
+        [dir="rtl"] {
+            font-family: 'Cairo', system-ui, sans-serif;
+        }
+        /* Custom Glowing & Glass Effects */
+        .glass-panel {
+            background: rgba(15, 23, 42, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .glass-card {
+            background: rgba(17, 24, 39, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .glass-card:hover {
+            border-color: rgba(56, 189, 248, 0.4);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 35px -10px rgba(14, 165, 233, 0.15);
+        }
+        .glow-sphere {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(110px);
+            pointer-events: none;
+            opacity: 0.45;
+            z-index: 0;
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #38bdf8 0%, #818cf8 50%, #c084fc 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .gradient-medical {
+            background: linear-gradient(135deg, #2dd4bf 0%, #38bdf8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        /* Grid background pattern */
+        .bg-grid-pattern {
+            background-size: 40px 40px;
+            background-image: 
+                linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #090d16;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1e293b;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #0284c7;
+        }
+        /* Print styles for CV */
+        @media print {
+            body {
+                background: white !important;
+                color: black !important;
+            }
+            .no-print {
+                display: none !important;
+            }
+            #cv-modal-content {
+                box-shadow: none !important;
+                border: none !important;
+                color: black !important;
+                padding: 0 !important;
+                max-width: 100% !important;
+            }
+        }
+    </style>
+</head>
+<body class="bg-[#090d16] text-slate-100 selection:bg-brand-500 selection:text-white relative min-h-screen">
 
-    <div class="bg-white">
-      <header class="relative lg:absolute inset-x-0 top-0 z-50 animate-fade-in">
-        <nav aria-label="Global" class="flex items-center justify-between p-6 lg:px-8">
-          <div class="flex lg:flex-1">
-            <a href="#" class="-m-1.5 p-1.5 hover-grow hidden lg:block">
-              <span class="sr-only">Your Company</span>
-              <img src="./logo.png" alt="" class="h-16 w-auto" />
-            </a>
-          </div>
-          <div class="flex lg:hidden">
-            <button id="menu-btn" class="mobile-menu-button text-gray-700 focus:outline-none">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" 
-                   viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
-                      d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
-            </button>
-          </div>
-          <div class="hidden lg:flex lg:gap-x-12">
-            <a href="#About" class="text-sm/6 font-semibold text-gray-900 hover:text-indigo-600 transition-colors" data-aos="fade-down" data-aos-delay="100">about me</a>
-            <a href="#Education" class="text-sm/6 font-semibold text-gray-900 hover:text-indigo-600 transition-colors" data-aos="fade-down" data-aos-delay="200">education</a>
-            <a href="#Skills" class="text-sm/6 font-semibold text-gray-900 hover:text-indigo-600 transition-colors" data-aos="fade-down" data-aos-delay="300">Skills</a>
-            <a href="#Projects" class="text-sm/6 font-semibold text-gray-900 hover:text-indigo-600 transition-colors" data-aos="fade-down" data-aos-delay="400">Projects</a>
-            <a href="#service" class="text-sm/6 font-semibold text-gray-900 hover:text-indigo-600 transition-colors" data-aos="fade-down" data-aos-delay="500">service</a>
-            <a href="#contact" class="text-sm/6 font-semibold text-gray-900 hover:text-indigo-600 transition-colors" data-aos="fade-down" data-aos-delay="600">Contact</a>
-          </div>
-          <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-          </div>
-        </nav>
+    <!-- Ambient Glow Orbs -->
+    <div class="glow-sphere bg-cyan-600 w-96 h-96 top-[-100px] left-[-100px]"></div>
+    <div class="glow-sphere bg-indigo-600 w-[450px] h-[450px] top-[20%] right-[-150px]"></div>
+    <div class="glow-sphere bg-teal-600 w-[500px] h-[500px] bottom-[25%] left-[-150px]"></div>
 
-        <!-- Mobile Logo -->
-        <div class="mobile-logo lg:hidden">
-          <a href="#" class="-m-1.5 p-1.5 hover-grow">
-            <span class="sr-only">Your Company</span>
-            <img src="./logo.png" alt="" class="h-32 w-auto" />
-          </a>
-        </div>
+    <!-- Background Grid overlay -->
+    <div class="fixed inset-0 bg-grid-pattern pointer-events-none z-0"></div>
 
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden">
-          <div id="mobile-menu-content" class="bg-white">
-            <div class="mobile-menu-header">
-              <a href="#" class="flex items-center">
-                <img src="./logo.png" alt="" class="h-8 w-auto" />
-              </a>
-                    <!-- <button id="close-menu-button" type="button" class="text-gray-500 hover:text-gray-700">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              </button> -->
-            </div>
-            <div class="mobile-menu-links">
-              <a href="#About" class="block">about me</a>
-              <a href="#Education" class="block">education</a>
-              <a href="#Skills" class="block">Skills</a>
-              <a href="#Projects" class="block">Projects</a>
-              <a href="#service" class="block">service</a>
-              <a href="#contact" class="block">Contact</a>
-            </div>
-          </div>
-        </div>
-      </header>
-
-      <div class="relative isolate px-6 lg:px-8 mb-12 mobile-content">
-        <div aria-hidden="true" class="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80 floating">
-          <div style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)" class="relative left-[calc(50%-11rem)] aspect-1155/678 w-144.5 -translate-x-1/2 rotate-30 bg-linear-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-30rem)] sm:w-288.75"></div>
-        </div>
-        <div class="mx-auto max-w-2xl lg:pt-52">
-          <div class="text-center mt-6" data-aos="fade-up">
-            <h1 class="text-5xl font-semibold tracking-tight text-balance text-gray-900 sm:text-7xl animate-slide-top">I'm Zeyad Yasser</h1>
-            <p class="mt-6 text-lg font-semibold text-pretty text-gray-950 sm:text-xl/8" data-aos="fade-up" data-aos-delay="100">Let's Take a Dive to Know Who is Zeyad</p>
-            <p class="mt-6 text-lg font-bold text-pretty text-gray-600 sm:text-xl/8" data-aos="fade-up" data-aos-delay="200">"Delivering reliable IT support, ensuring high-quality software through meticulous testing, and building effective, user-friendly Software solutions."</p>
-            <div class="mt-10 flex items-center justify-center gap-x-6" data-aos="fade-up" data-aos-delay="300">
-              <a href="#contact" class="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 transition-colors animate-pulse">Get started</a>
-            </div>
-          </div>
-        </div>
-        <div aria-hidden="true" class="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)] floating">
-          <div style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)" class="relative left-[calc(50%+3rem)] aspect-1155/678 w-144.5 -translate-x-1/2 bg-linear-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%+36rem)] sm:w-288.75"></div>
-        </div>
-      </div>
-
-      <div class="bg-white">
-        <div class="mx-auto grid max-w-2xl grid-cols-1 items-center gap-x-8 gap-y-16 px-4 sm:px-6 lg:max-w-7xl lg:grid-cols-2 lg:px-8">
-          <div data-aos="fade-right">
-            <h2 id="About" class="text-3xl mb-4 font-bold tracking-tight text-gray-900 sm:text-5xl">About Me</h2>
-            <h2 class="text-lg leading-8 font-semibold tracking-tight text-gray-500 sm:text-lg">I'm a IT support specialist, software tester, and Software developer with a passion for delivering seamless digital experiences.
-            By providing reliable IT solutions, ensuring software quality through meticulous testing, and building responsive, user-friendly Softwares, I help businesses operate efficiently and connect better with their audiences. Whether it's resolving technical issues, eliminating software bugs, or creating impactful web solutions, I specialize in turning challenges into opportunities for growth. Let's work together to enhance your systems, improve performance, and bring your digital vision to life!</h2>
-
-            <p class="mt-8 text-lg font-bold leading-7 text-gray-600"> Here are a some of the services I provide:</p>
-
-            <ul class="mt-4 space-y-2 text-gray-700">
-              <li class="relative pl-6 before:content-arrow before:absolute before:left-0 text-lg font-semibold tracking-tight hover:text-indigo-600 transition-colors" data-aos="fade-right" data-aos-delay="100">
-                IT Support Specialist
-              </li>
-              <li class="relative pl-6 before:content-arrow before:absolute before:left-0 text-lg font-semibold tracking-tight hover:text-indigo-600 transition-colors" data-aos="fade-right" data-aos-delay="200">
-                Software Tester
-              </li>
-              <li class="relative pl-6 before:content-arrow before:absolute before:left-0 text-lg font-semibold tracking-tight hover:text-indigo-600 transition-colors" data-aos="fade-right" data-aos-delay="300">
-                Web Developer
-              </li>
-              <li class="relative pl-6 before:content-arrow before:absolute before:left-0 text-lg font-semibold tracking-tight hover:text-indigo-600 transition-colors" data-aos="fade-right" data-aos-delay="400">
-                Flutter Developer
-              </li>
-            </ul>
-          </div>
-          <div class="grid grid-cols-1 grid-rows-11 gap-4 sm:gap-6 lg:gap-8" data-aos="fade-left">
-            <img src="./ZEYAD.jpg" alt="Zeyad." class="p-20 rounded-lg blob hover-grow" />
-          </div>
-        </div>
-      </div>
+    <!-- Toast Notification -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-24 opacity-0 transition-all duration-300 flex items-center gap-3 px-5 py-3 rounded-xl bg-slate-900 border border-brand-500/50 shadow-2xl text-white text-sm">
+        <svg class="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+        <span id="toast-message">Copied to clipboard!</span>
     </div>
 
-    <section id="Education" class="bg-gray-50 py-10" data-aos="fade-up">
-      <div class="max-w-4xl mx-auto px-4">
-        <h2 class="text-3xl font-bold text-center mb-12">Education & Experience</h2>
-        <div class="relative border-l border-blue-500">
-          
-          <!-- Item 1 -->
-          <div class="mb-10 ml-6" data-aos="fade-right" data-aos-delay="100">
-            <span class="absolute -left-3 flex items-center justify-center w-6 h-6 bg-blue-500 rounded-full ring-8 ring-gray-50 animate-pulse"></span>
-            <time class="mb-1 ml-6 text-sm font-normal leading-none text-blue-500">2022 – 2026</time>
-            <h3 class="text-lg font-semibold text-gray-900">Bachelor's in Computer Science</h3>
-            <p class="text-base font-normal text-gray-500">
-              Faculty of Computers and Information, Egyptian Korean University for Industrial Technology and Energy<br>
-              Specializing in Software Engineering
-            </p>
-          </div>
+    <!-- Navigation Bar -->
+    <header class="sticky top-0 z-40 glass-panel border-b border-slate-800/80 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="relative p-1 rounded-xl bg-gradient-to-tr from-brand-500 to-indigo-600 p-[1.5px] group-hover:scale-105 transition-transform">
+                    <div class="bg-slate-950 p-1.5 rounded-[10px]">
+                        <img src="./logo.png" alt="Zeyad Logo" class="h-8 w-auto invert filter brightness-200">
+                    </div>
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-extrabold text-lg tracking-wider text-white flex items-center gap-1.5">
+                        ZEYAD <span class="text-brand-400">YASSER</span>
+                    </span>
+                    <span class="text-[10px] tracking-widest text-slate-400 uppercase font-mono">IT Systems & Software</span>
+                </div>
+            </a>
 
+            <!-- Desktop Nav Links -->
+            <nav class="hidden lg:flex items-center gap-8 text-sm font-medium text-slate-300">
+                <a href="#about" class="hover:text-brand-400 transition-colors" data-en="About" data-ar="نبذة عني">About</a>
+                <a href="#experience" class="hover:text-brand-400 transition-colors" data-en="Experience" data-ar="الخبرات">Experience</a>
+                <a href="#medical-it" class="hover:text-brand-400 transition-colors flex items-center gap-1" data-en="Medical IT" data-ar="الأنظمة الطبية">
+                    <span class="w-2 h-2 rounded-full bg-teal-400 animate-ping"></span>
+                    <span>Medical IT</span>
+                </a>
+                <a href="#projects" class="hover:text-brand-400 transition-colors" data-en="Projects (21)" data-ar="المشاريع (21)">Projects (21)</a>
+                <a href="#skills" class="hover:text-brand-400 transition-colors" data-en="Skills" data-ar="المهارات">Skills</a>
+                <a href="#services" class="hover:text-brand-400 transition-colors" data-en="Services" data-ar="الخدمات">Services</a>
+                <a href="#contact" class="hover:text-brand-400 transition-colors" data-en="Contact" data-ar="تواصل معي">Contact</a>
+            </nav>
 
-                      <!-- Item 1 -->
-          <div class="mb-10 ml-6" data-aos="fade-right" data-aos-delay="200">
-            <span class="absolute -left-3 flex items-center justify-center w-6 h-6 bg-blue-500 rounded-full ring-8 ring-gray-50 animate-pulse"></span>
-            <time class="mb-1 ml-6 text-sm font-normal leading-none text-blue-500">2024</time>
-            <h3 class="text-lg font-semibold text-gray-900">IT Support | System Administrator</h3>
-            <p class="text-base font-normal text-gray-500">
-              Elmarwa Hotel <br>
-               Designed and deployed a full IT system for hotel management. , Trained staff on daily IT procedures and system use. 
-, Managed network and reservation systems. 
-            </p>
-          </div>
+            <!-- Actions: CV Modal + Lang Switcher + Mobile Button -->
+            <div class="flex items-center gap-3">
+                <!-- Language Switcher Button -->
+                <button id="lang-toggle-btn" class="px-3 py-1.5 rounded-lg border border-slate-700 bg-slate-800/80 hover:bg-slate-700 text-xs font-semibold text-slate-200 flex items-center gap-1.5 transition-colors">
+                    <svg class="w-4 h-4 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"/></svg>
+                    <span id="lang-label">عربي</span>
+                </button>
 
-          <!-- Item 1 -->
-          <div class="mb-10 ml-6" data-aos="fade-right" data-aos-delay="200">
-            <span class="absolute -left-3 flex items-center justify-center w-6 h-6 bg-blue-500 rounded-full ring-8 ring-gray-50 animate-pulse"></span>
-            <time class="mb-1 ml-6 text-sm font-normal leading-none text-blue-500">2024</time>
-            <h3 class="text-lg font-semibold text-gray-900">IT Manager</h3>
-            <p class="text-base font-normal text-gray-500">
-              Gamma Radiology Center <br>
- Provided comprehensive IT support across 3 branches. 
-• Maintained networks, printers, surveillance, and access systems. 
-• Supported radiology devices (MRI, CT, X-ray) from vendors including Toshiba and Siemens. 
-• Ensured minimal downtime and rapid issue resolution. 
-• Managing 4 servers (print server, system server (Millensys), backup server(Veeam), and 
-database server)  
-            </p>
-          </div>
+                <!-- CV Button -->
+                <button onclick="openCvModal()" class="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-semibold text-white bg-gradient-to-r from-brand-600 to-indigo-600 hover:from-brand-500 hover:to-indigo-500 shadow-lg shadow-brand-500/20 hover:shadow-brand-500/40 transition-all hover:-translate-y-0.5">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                    <span data-en="View CV" data-ar="عرض الـ CV">View CV</span>
+                </button>
 
-          <!-- Item 2 -->
-          <div class="mb-10 ml-6" data-aos="fade-right" data-aos-delay="200">
-            <span class="absolute -left-3 flex items-center justify-center w-6 h-6 bg-blue-500 rounded-full ring-8 ring-gray-50 animate-pulse"></span>
-            <time class="mb-1 ml-6 text-sm font-normal leading-none text-blue-500">2023</time>
-            <h3 class="text-lg font-semibold text-gray-900">C++ Development Intern</h3>
-            <p class="text-base font-normal text-gray-500">
-              Elzero Web School<br>
-              Learn the basics of C++, object-oriented programming, algorithms, and data structures.
-            </p>
-          </div>
-
-          <!-- Item 3 -->
-          <div class="mb-10 ml-6" data-aos="fade-right" data-aos-delay="300">
-            <span class="absolute -left-3 flex items-center justify-center w-6 h-6 bg-blue-500 rounded-full ring-8 ring-gray-50 animate-pulse"></span>
-            <time class="mb-1 ml-6 text-sm font-normal leading-none text-blue-500">2023</time>
-            <h3 class="text-lg font-semibold text-gray-900">Python Developer</h3>
-            <p class="text-base font-normal text-gray-500">
-              Elzero Web School<br>
-              Learn Python and Django Framework for Web Development
-            </p>
-          </div>
-
-          <!-- Item 4 -->
-          <div class="mb-10 ml-6" data-aos="fade-right" data-aos-delay="400">
-            <span class="absolute -left-3 flex items-center justify-center w-6 h-6 bg-blue-500 rounded-full ring-8 ring-gray-50 animate-pulse"></span>
-            <time class="mb-1 ml-6 text-sm font-normal leading-none text-blue-500">2025</time>
-            <h3 class="text-lg font-semibold text-gray-900">PHP</h3>
-            <p class="text-base font-normal text-gray-500">
-              Route Academy<br>
-              PHP language basics for developing websites and creating more than one project, including a project for the university
-            </p>
-          </div>
-
-          <!-- Item 5 -->
-          <div class="mb-10 ml-6" data-aos="fade-right" data-aos-delay="500">
-            <span class="absolute -left-3 flex items-center justify-center w-6 h-6 bg-blue-500 rounded-full ring-8 ring-gray-50 animate-pulse"></span>
-            <time class="mb-1 ml-6 text-sm font-normal leading-none text-blue-500">2026</time>
-            <h3 class="text-lg font-semibold text-gray-900">software Tester</h3>
-            <p class="text-base font-normal text-gray-500">
-              Egypt Digital Pioneers Initiative <br>
-              Software Testing Basics
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="Skills" class="bg-gray-50 py-10">
-      <div class="max-w-3xl mx-auto px-4" data-aos="fade-up">
-        <h2 class="text-3xl font-bold text-center mb-8">My Skills</h2>
-        
-        <!-- Skill Item -->
-        <div class="mb-6" data-aos="fade-up" data-aos-delay="100">
-          <div class="flex justify-between mb-1">
-            <span class="text-base font-medium text-gray-700">PHP</span>
-            <span class="text-sm font-medium text-gray-500">80%</span>
-          </div>
-          <div class="w-full bg-gray-200 rounded-full h-3">
-            <div class="skill-bar-fill bg-gradient-to-r from-blue-500 to-indigo-600 h-3 rounded-full" data-width="80%" style="width: 0;"></div>
-          </div>
-        </div>
-
-        <div class="mb-6" data-aos="fade-up" data-aos-delay="150">
-          <div class="flex justify-between mb-1">
-            <span class="text-base font-medium text-gray-700">C++</span>
-            <span class="text-sm font-medium text-gray-500">70%</span>
-          </div>
-          <div class="w-full bg-gray-200 rounded-full h-3">
-            <div class="skill-bar-fill bg-gradient-to-r from-blue-500 to-indigo-600 h-3 rounded-full" data-width="70%" style="width: 0;"></div>
-          </div>
-        </div>
-
-        <div class="mb-6" data-aos="fade-up" data-aos-delay="200">
-          <div class="flex justify-between mb-1">
-            <span class="text-base font-medium text-gray-700">Python</span>
-            <span class="text-sm font-medium text-gray-500">70%</span>
-          </div>
-          <div class="w-full bg-gray-200 rounded-full h-3">
-            <div class="skill-bar-fill bg-gradient-to-r from-blue-500 to-indigo-600 h-3 rounded-full" data-width="70%" style="width: 0;"></div>
-          </div>
-        </div>
-
-        <div class="mb-6" data-aos="fade-up" data-aos-delay="250">
-          <div class="flex justify-between mb-1">
-            <span class="text-base font-medium text-gray-700">JavaScript</span>
-            <span class="text-sm font-medium text-gray-500">60%</span>
-          </div>
-          <div class="w-full bg-gray-200 rounded-full h-3">
-            <div class="skill-bar-fill bg-gradient-to-r from-blue-500 to-indigo-600 h-3 rounded-full" data-width="60%" style="width: 0;"></div>
-          </div>
-        </div>
-
-        <div class="mb-6" data-aos="fade-up" data-aos-delay="300">
-          <div class="flex justify-between mb-1">
-            <span class="text-base font-medium text-gray-700">Tailwind CSS</span>
-            <span class="text-sm font-medium text-gray-500">90%</span>
-          </div>
-          <div class="w-full bg-gray-200 rounded-full h-3">
-            <div class="skill-bar-fill bg-gradient-to-r from-blue-500 to-indigo-600 h-3 rounded-full" data-width="90%" style="width: 0;"></div>
-          </div>
-        </div>
-
-        <div class="mb-6" data-aos="fade-up" data-aos-delay="350">
-          <div class="flex justify-between mb-1">
-            <span class="text-base font-medium text-gray-700">Java</span>
-            <span class="text-sm font-medium text-gray-500">70%</span>
-          </div>
-          <div class="w-full bg-gray-200 rounded-full h-3">
-            <div class="skill-bar-fill bg-gradient-to-r from-blue-500 to-indigo-600 h-3 rounded-full" data-width="70%" style="width: 0;"></div>
-          </div>
-        </div>
-
-        <div data-aos="fade-up" data-aos-delay="400">
-          <div class="flex justify-between mb-1">
-            <span class="text-base font-medium text-gray-700">QA</span>
-            <span class="text-sm font-medium text-gray-500">30%</span>
-          </div>
-          <div class="w-full bg-gray-200 rounded-full h-3">
-            <div class="skill-bar-fill bg-gradient-to-r from-blue-500 to-indigo-600 h-3 rounded-full" data-width="30%" style="width: 0;"></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="Projects" class="py-16 bg-gray-50">
-      <div class="max-w-7xl mx-auto px-6">
-        <h2 class="text-3xl font-bold text-center mb-12" data-aos="fade-up">My Projects</h2>
-        
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          
-          <!-- Project Card -->
-          <div class="bg-white rounded-2xl shadow-lg overflow-hidden transform transition duration-300 hover:-translate-y-2 hover:shadow-2xl hover-grow" data-aos="zoom-in" data-aos-delay="100">
-            <img src="./hotel.jpg" alt="Project Image" class="w-full h-48 object-cover">
-            <div class="p-6">
-              <h3 class="text-xl font-semibold mb-2">Hotel-Reservation-System</h3>
-              <p class="text-gray-600 text-sm mb-4">
-                A hotel reservation system that allows users to search, book, and pay for available rooms, and for employees to manage reservations, availability, and prices in real time.
-              </p>
-              <div class="flex flex-wrap gap-2 mb-4">
-                <span class="bg-blue-100 text-blue-600 text-xs font-medium px-3 py-1 rounded-full">HTML</span>
-                <span class="bg-blue-100 text-blue-600 text-xs font-medium px-3 py-1 rounded-full">Tailwind Css</span>
-                <span class="bg-blue-100 text-blue-600 text-xs font-medium px-3 py-1 rounded-full">JavaScript</span>
-                <span class="bg-blue-100 text-blue-600 text-xs font-medium px-3 py-1 rounded-full">PHP</span>
-              </div>
-              <a href="https://github.com/zeyad4a/Hotel-Reservation-System.git" class="block w-full text-center bg-gradient-to-r from-blue-500 to-indigo-500 text-white font-semibold py-2 rounded-lg shadow-md hover:opacity-90 transition btn-hover-effect">
-                View Details
-              </a>
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="lg:hidden p-2 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"/></svg>
+                </button>
             </div>
-          </div>
-
-          <!-- Repeat for other projects -->
-          <div class="bg-white rounded-2xl shadow-lg overflow-hidden transform transition duration-300 hover:-translate-y-2 hover:shadow-2xl hover-grow" data-aos="zoom-in" data-aos-delay="200">
-            <img src="./kids.jpg" alt="Project Image" class="w-full h-48 object-cover">
-            <div class="p-6">
-              <h3 class="text-xl font-semibold mb-2">Educational Platform for children with special needs</h3>
-              <p class="text-gray-600 text-sm mb-4">
-                Interactive web app teaching programming basics through videos, games, and quizzes.
-              </p>
-              <div class="flex flex-wrap gap-2 mb-4">
-                <span class="bg-blue-100 text-blue-600 text-xs font-medium px-3 py-1 rounded-full">HTML</span>
-                <span class="bg-blue-100 text-blue-600 text-xs font-medium px-3 py-1 rounded-full">Tailwind Css</span>
-                <span class="bg-blue-100 text-blue-600 text-xs font-medium px-3 py-1 rounded-full">JavaScript</span>
-              </div>
-              <a href="https://zeyad4a.github.io/Children_speech_problems/" class="block w-full text-center bg-gradient-to-r from-blue-500 to-indigo-500 text-white font-semibold py-2 rounded-lg shadow-md hover:opacity-90 transition btn-hover-effect">
-                View Details
-              </a>
-            </div>
-          </div>
-
-          <div class="bg-white rounded-2xl shadow-lg overflow-hidden transform transition duration-300 hover:-translate-y-2 hover:shadow-2xl hover-grow" data-aos="zoom-in" data-aos-delay="300">
-            <img src="./hms.jpg" alt="Project Image" class="w-full h-48 object-cover">
-            <div class="p-6">
-              <h3 class="text-xl font-semibold mb-2">Hospital Management System</h3>
-              <p class="text-gray-600 text-sm mb-4">
-                A hospital management system aims to organize and manage all hospital operations, such as patient registration, appointments, medical records, billing, and medical inventory, digitally and efficiently.
-              </p>
-              <div class="flex flex-wrap gap-2 mb-4">
-                <span class="bg-blue-100 text-blue-600 text-xs font-medium px-3 py-1 rounded-full">Html</span>
-                <span class="bg-blue-100 text-blue-600 text-xs font-medium px-3 py-1 rounded-full">Tailwind Css</span>
-                <span class="bg-blue-100 text-blue-600 text-xs font-medium px-3 py-1 rounded-full">JavaScript</span>
-                <span class="bg-blue-100 text-blue-600 text-xs font-medium px-3 py-1 rounded-full">Php</span>
-              </div>
-              <a href="https://github.com/zeyad4a/Hospital_Management_System.git" class="block w-full text-center bg-gradient-to-r from-blue-500 to-indigo-500 text-white font-semibold py-2 rounded-lg shadow-md hover:opacity-90 transition btn-hover-effect">
-                View Details
-              </a>
-            </div>
-          </div>
-
-          <div class="bg-white rounded-2xl shadow-lg overflow-hidden transform transition duration-300 hover:-translate-y-2 hover:shadow-2xl hover-grow" data-aos="zoom-in" data-aos-delay="400">
-            <img src="./Online_Coaching.jpg" alt="Project Image" class="w-full h-48 object-cover">
-            <div class="p-6">
-              <h3 class="text-xl font-semibold mb-2">Online-Trining</h3>
-              <p class="text-gray-600 text-sm mb-4">
-              An online fitness training platform for gyms that allows trainers to provide workout and nutrition plans, stream live or recorded sessions, and track members' progress toward their fitness goals.          </p>
-              <div class="flex flex-wrap gap-2 mb-4">
-                <span class="bg-blue-100 text-blue-600 text-xs font-medium px-3 py-1 rounded-full">Html</span>
-                <span class="bg-blue-100 text-blue-600 text-xs font-medium px-3 py-1 rounded-full">Css</span>
-              </div>
-              <a href="https://zeyad4a.github.io/Onlin-Trining-Css-Html/" class="block w-full text-center bg-gradient-to-r from-blue-500 to-indigo-500 text-white font-semibold py-2 rounded-lg shadow-md hover:opacity-90 transition btn-hover-effect">
-                View Details
-              </a>
-            </div>
-          </div>
         </div>
-      </div>
-    </section>
 
-    <section id="service" class="py-16 bg-gray-50">
-      <div class="container mx-auto px-6">
-        <h2 class="text-3xl font-bold text-center mb-12" data-aos="fade-up">My Services</h2>
-        <div class="grid md:grid-cols-4 gap-8">
-
-          <!-- IT Support Solution -->
-          <div class="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition duration-300 hover-grow" data-aos="fade-up" data-aos-delay="100">
-            <div class="flex justify-center mb-4">
-              <svg class="w-12 h-12 text-blue-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v1m0 14v1m8-9h1M4 12H3m15.36 6.36l.7.7M6.34 6.34l-.7-.7m12.02 0l.7-.7M6.34 17.66l-.7.7M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
-              </svg>
-            </div>
-            <h3 class="text-xl font-semibold text-center mb-2">IT Support Solution</h3>
-            <p class="text-gray-600 text-center">Providing reliable IT support solutions to ensure smooth operations and quick issue resolution.</p>
-          </div>
-
-          <!-- Software Tester -->
-          <div class="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition duration-300 hover-grow" data-aos="fade-up" data-aos-delay="200">
-            <div class="flex justify-center mb-4">
-              <svg class="w-12 h-12 text-blue-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M3 7l9 4 9-4-9-4-9 4z" />
-                <path stroke-linecap="round" stroke-linejoin="round" d="M3 17l9 4 9-4M3 12l9 4 9-4" />
-              </svg>
-            </div>
-            <h3 class="text-xl font-semibold text-center mb-2">Software Tester</h3>
-            <p class="text-gray-600 text-center">Performing manual and automated testing to ensure software quality and performance.</p>
-          </div>
-
-          <!-- Web Developer -->
-          <div class="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition duration-300 hover-grow" data-aos="fade-up" data-aos-delay="300">
-            <div class="flex justify-center mb-4">
-              <svg class="w-12 h-12 text-blue-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M16 18l6-6-6-6M8 6l-6 6 6 6" />
-              </svg>
-            </div>
-            <h3 class="text-xl font-semibold text-center mb-2">Web Developer</h3>
-            <p class="text-gray-600 text-center">Building responsive and user-friendly websites using modern technologies and best practices.</p>
-          </div>
-
-          <!-- Flutter Developer -->
-          <div class="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition duration-300 hover-grow" data-aos="fade-up" data-aos-delay="400">
-            <div class="flex justify-center mb-4">
-              <svg class="w-12 h-12 text-blue-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-3.197-2.132a4 4 0 00-5.555 1.11L3 15.75V21h5.25l3.197-4.8a4 4 0 011.11-5.555l2.195-1.477z" />
-              </svg>
-            </div>
-            <h3 class="text-xl font-semibold text-center mb-2">Flutter Developer</h3>
-            <p class="text-gray-600 text-center">Creating high-performance cross-platform mobile apps with Flutter framework and modern UI/UX.</p>
-          </div>
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden border-t border-slate-800 bg-slate-950/95 px-6 py-6 space-y-4 backdrop-blur-xl">
+            <a href="#about" class="block text-slate-300 hover:text-brand-400 font-medium py-1">About</a>
+            <a href="#experience" class="block text-slate-300 hover:text-brand-400 font-medium py-1">Experience</a>
+            <a href="#medical-it" class="block text-teal-400 hover:text-teal-300 font-medium py-1">Medical IT & Systems</a>
+            <a href="#projects" class="block text-slate-300 hover:text-brand-400 font-medium py-1">All Projects (21)</a>
+            <a href="#skills" class="block text-slate-300 hover:text-brand-400 font-medium py-1">Technical Skills</a>
+            <a href="#services" class="block text-slate-300 hover:text-brand-400 font-medium py-1">Services</a>
+            <a href="#contact" class="block text-slate-300 hover:text-brand-400 font-medium py-1">Contact Me</a>
+            <button onclick="openCvModal()" class="w-full mt-4 flex items-center justify-center gap-2 py-3 rounded-xl bg-brand-600 text-white font-semibold text-sm">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                <span>View & Download CV</span>
+            </button>
         </div>
-      </div>
-    </section>
+    </header>
 
-    <section id="contact" class="py-16 bg-gradient-to-br from-blue-50 to-blue-100">
-      <div class="container mx-auto px-6">
-        <h2 class="text-4xl font-bold text-center mb-12 text-blue-700" data-aos="fade-up">Contact Me</h2>
-        <div class="grid md:grid-cols-2 gap-10">
+    <main class="relative z-10">
 
-          <!-- Contact Form -->
-          <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition duration-300 hover-grow" data-aos="fade-right">
-            <form class="space-y-5">
-              <input type="text" placeholder="Your Name" class="w-full p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-400 outline-none transition-all">
-              <input type="text" placeholder="Your Phone" class="w-full p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-400 outline-none transition-all">
-              <input type="email" placeholder="Your Email" class="w-full p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-400 outline-none transition-all">
-              <textarea placeholder="Your Message" rows="5" class="w-full p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-400 outline-none transition-all"></textarea>
-              <button type="submit" class="w-full bg-blue-500 text-white p-3 rounded-lg hover:bg-blue-600 transition btn-hover-effect">Send Message</button>
-            </form>
-          </div>
+        <!-- HERO SECTION -->
+        <section class="min-h-[calc(100vh-80px)] flex items-center py-12 lg:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center w-full">
+                
+                <!-- Hero Left: Text & Pitch -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    
+                    <!-- Availability Pill -->
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-emerald-500/30 bg-emerald-950/40 text-emerald-400 text-xs font-semibold">
+                        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                        <span data-en="Available for Opportunities & IT Projects" data-ar="متاح للمشاريع والفرص المهنية">Available for Opportunities & IT Projects</span>
+                    </div>
 
-          <!-- Get in Touch -->
-          <div class="bg-gradient-to-br from-blue-600 to-blue-800 text-white p-10 rounded-2xl shadow-lg hover:shadow-2xl transition duration-300 hover-grow" data-aos="fade-left">
-            <h3 class="text-3xl font-bold mb-8 border-b-2 border-blue-300 pb-3">Get in Touch</h3>
-            <div class="space-y-6 text-lg">
+                    <!-- Main Headline -->
+                    <div class="space-y-2">
+                        <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight text-white leading-tight">
+                            <span data-en="Hi, I'm" data-ar="مرحباً، أنا">Hi, I'm</span> 
+                            <span class="gradient-text">Zeyad Yasser</span>
+                        </h1>
+                        <p class="text-xl sm:text-2xl font-bold text-slate-300">
+                            <span data-en="IT Operations & System Administrator" data-ar="مدير نظم وعمليات تكنولوجيا المعلومات">IT Operations & System Administrator</span>
+                            <span class="text-brand-400 block text-lg sm:text-xl font-medium mt-1">
+                                Full-Stack Developer • Medical IT Specialist • Software QA
+                            </span>
+                        </p>
+                    </div>
 
-              <!-- WhatsApp -->
-               <a href="https://wa.me/201024474059" target="_blank" class="flex items-center space-x-4 hover:text-blue-200 transition">
-                <svg class="w-8 h-8 text-green-400" fill="currentColor" viewBox="0 0 24 24"><path d="M20.52 3.48A11.93 11.93 0 0012 0C5.38 0 0 5.38 0 12c0 2.11.55 4.14 1.6 5.93L0 24l6.28-1.64A11.93 11.93 0 0012 24c6.62 0 12-5.38 12-12 0-3.2-1.25-6.21-3.48-8.52zM12 22a9.93 9.93 0 01-5.1-1.39l-.36-.21-3.73.98 1-3.64-.24-.37A9.92 9.92 0 1122 12c0 5.52-4.48 10-10 10zm5.21-7.79c-.29-.15-1.72-.85-1.99-.94-.27-.1-.46-.15-.66.15-.19.29-.76.94-.93 1.14-.17.19-.34.21-.63.07-.29-.15-1.22-.45-2.32-1.44-.86-.77-1.44-1.72-1.61-2.01-.17-.29-.02-.45.13-.6.13-.13.29-.34.43-.51.14-.17.19-.29.29-.48.1-.19.05-.36-.02-.51-.07-.15-.66-1.59-.91-2.18-.24-.58-.49-.5-.66-.51h-.57c-.19 0-.51.07-.78.36-.27.29-1.02 1-1.02 2.44s1.05 2.83 1.19 3.02c.15.19 2.07 3.17 5.02 4.45.7.3 1.25.48 1.68.61.71.23 1.35.2 1.86.12.57-.09 1.72-.7 1.96-1.38.24-.67.24-1.24.17-1.38-.07-.13-.26-.21-.55-.36z"/></svg>
-                <span class="font-medium">WhatsApp: +20 102 447 4059</span>
-              </a>
+                    <!-- Bio Intro from CV -->
+                    <p class="text-slate-400 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto lg:mx-0" data-en="Bachelor of Computer Science & Software Engineering graduate with deep hands-on expertise managing enterprise healthcare infrastructure (PACS, RIS, DICOM, MRI/CT), multi-branch networks, 4 core servers, and building end-to-end full-stack web software." data-ar="خريج بكالوريوس حاسبات ومعلومات (هندسة برمجيات) مع خبرة عملية قوية في إدارة البنية التحتية الطبية (أنظمة PACS و RIS و DICOM وأجهزة الرنين والأشعة)، وإدارة شبكات الفروع و4 خوادم رئيسية، وبناء وتطوير تطبيقات الويب المتكاملة.">
+                        Bachelor of Computer Science & Software Engineering graduate with deep hands-on expertise managing enterprise healthcare infrastructure (PACS, RIS, DICOM, MRI/CT), multi-branch networks, 4 core servers, and building end-to-end full-stack web software.
+                    </p>
 
-              <!-- Gmail -->
-              <a href="mailto:zeyady2233@gmail.com" class="flex items-center space-x-4 hover:text-blue-200 transition">
-                <svg class="w-8 h-8 text-red-400" fill="currentColor" viewBox="0 0 24 24"><path d="M20 4H4c-1.103 0-2 .897-2 2v12c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2V6c0-1.103-.897-2-2-2zm0 2l-8 5-8-5h16zm0 12H4V8l8 5 8-5v10z"/></svg>
-                <span class="font-medium">zeyady2233@gmail.com</span>
-              </a>
+                    <!-- Quick Key Badges -->
+                    <div class="flex flex-wrap gap-2.5 justify-center lg:justify-start pt-2">
+                        <span class="px-3 py-1 rounded-lg bg-slate-800/80 border border-slate-700/80 text-xs text-slate-300 flex items-center gap-1.5">
+                            <svg class="w-4 h-4 text-teal-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+                            Gamma Radiology IT Manager
+                        </span>
+                        <span class="px-3 py-1 rounded-lg bg-slate-800/80 border border-slate-700/80 text-xs text-slate-300 flex items-center gap-1.5">
+                            <svg class="w-4 h-4 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
+                            DEPI QA & Software Testing
+                        </span>
+                        <span class="px-3 py-1 rounded-lg bg-slate-800/80 border border-slate-700/80 text-xs text-slate-300 flex items-center gap-1.5">
+                            <svg class="w-4 h-4 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                            NASA Space Apps Cairo
+                        </span>
+                        <span class="px-3 py-1 rounded-lg bg-slate-800/80 border border-slate-700/80 text-xs text-slate-300 flex items-center gap-1.5">
+                            <svg class="w-4 h-4 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                            Beni Suef, Egypt
+                        </span>
+                    </div>
 
-              <!-- GitHub -->
-              <a href="https://github.com/zeyad4a" target="_blank" class="flex items-center space-x-4 hover:text-blue-200 transition">
-                <svg class="w-8 h-8 text-gray-200" fill="currentColor" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.302 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577v-2.234c-3.338.724-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.09-.745.083-.729.083-.729 1.205.084 1.84 1.238 1.84 1.238 1.07 1.834 2.809 1.304 3.495.997.108-.774.417-1.304.76-1.604-2.665-.3-5.466-1.334-5.466-5.93 0-1.31.467-2.382 1.235-3.222-.124-.303-.535-1.523.116-3.176 0 0 1.008-.322 3.3 1.23a11.48 11.48 0 013.004-.404c1.02.005 2.046.138 3.004.404 2.292-1.552 3.3-1.23 3.3-1.23.652 1.653.241 2.873.118 3.176.77.84 1.234 1.912 1.234 3.222 0 4.609-2.804 5.625-5.476 5.92.43.37.823 1.102.823 2.222v3.293c0 .322.218.694.825.576C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
-                <span class="font-medium">github.com/zeyad4a</span>
-              </a>
+                    <!-- Call To Actions -->
+                    <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-4">
+                        <a href="#projects" class="px-6 py-3.5 rounded-xl text-sm font-bold text-white bg-gradient-to-r from-brand-600 to-indigo-600 hover:from-brand-500 hover:to-indigo-500 shadow-xl shadow-brand-500/25 hover:shadow-brand-500/40 transition-all hover:-translate-y-0.5 flex items-center gap-2">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+                            <span data-en="Explore 21+ Projects" data-ar="استعراض 21+ مشروع">Explore 21+ Projects</span>
+                        </a>
 
-              <!-- Phone -->
-              <div class="flex items-center space-x-4">
-                <svg class="w-8 h-8 text-blue-300" fill="currentColor" viewBox="0 0 24 24"><path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.19a1 1 0 011.02-.24l4.28 1.04a1 1 0 01.51.95V20.5a1.5 1.5 0 01-1.5 1.5C9.94 22 3 14.06 3 5.5 3 4.67 3.67 4 4.5 4h2.41a1 1 0 01.95.51l1.04 4.28a1 1 0 01-.24 1.02l-2.19 2.2z"/></svg>
-                <span class="font-medium">01024474059</span>
-              </div>
+                        <button onclick="openCvModal()" class="px-6 py-3.5 rounded-xl text-sm font-bold text-slate-200 bg-slate-800/80 hover:bg-slate-700/80 border border-slate-700 hover:border-brand-500/50 shadow-lg transition-all hover:-translate-y-0.5 flex items-center gap-2">
+                            <svg class="w-4 h-4 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                            <span data-en="Review My Full CV" data-ar="استعراض الـ CV بالكامل">Review My Full CV</span>
+                        </button>
+
+                        <a href="https://wa.me/201024474059" target="_blank" class="px-5 py-3.5 rounded-xl text-sm font-bold text-emerald-400 bg-emerald-950/40 hover:bg-emerald-900/50 border border-emerald-500/40 transition-all hover:-translate-y-0.5 flex items-center gap-2">
+                            <svg class="w-4 h-4 text-emerald-400 fill-current" viewBox="0 0 24 24"><path d="M20.52 3.48A11.93 11.93 0 0012 0C5.38 0 0 5.38 0 12c0 2.11.55 4.14 1.6 5.93L0 24l6.28-1.64A11.93 11.93 0 0012 24c6.62 0 12-5.38 12-12 0-3.2-1.25-6.21-3.48-8.52zM12 22a9.93 9.93 0 01-5.1-1.39l-.36-.21-3.73.98 1-3.64-.24-.37A9.92 9.92 0 1122 12c0 5.52-4.48 10-10 10zm5.21-7.79c-.29-.15-1.72-.85-1.99-.94-.27-.1-.46-.15-.66.15-.19.29-.76.94-.93 1.14-.17.19-.34.21-.63.07-.29-.15-1.22-.45-2.32-1.44-.86-.77-1.44-1.72-1.61-2.01-.17-.29-.02-.45.13-.6.13-.13.29-.34.43-.51.14-.17.19-.29.29-.48.1-.19.05-.36-.02-.51-.07-.15-.66-1.59-.91-2.18-.24-.58-.49-.5-.66-.51h-.57c-.19 0-.51.07-.78.36-.27.29-1.02 1-1.02 2.44s1.05 2.83 1.19 3.02c.15.19 2.07 3.17 5.02 4.45.7.3 1.25.48 1.68.61.71.23 1.35.2 1.86.12.57-.09 1.72-.7 1.96-1.38.24-.67.24-1.24.17-1.38-.07-.13-.26-.21-.55-.36z"/></svg>
+                            <span>WhatsApp</span>
+                        </a>
+                    </div>
+
+                    <!-- Direct Social Profiles -->
+                    <div class="flex items-center justify-center lg:justify-start gap-4 pt-2 text-slate-400">
+                        <span class="text-xs uppercase tracking-wider text-slate-500 font-mono">Connect:</span>
+                        <a href="https://github.com/ZeyadR5" target="_blank" class="p-2 rounded-lg bg-slate-900 border border-slate-800 hover:text-white hover:border-slate-600 transition" title="GitHub Profile">
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.302 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577v-2.234c-3.338.724-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.09-.745.083-.729.083-.729 1.205.084 1.84 1.238 1.84 1.238 1.07 1.834 2.809 1.304 3.495.997.108-.774.417-1.304.76-1.604-2.665-.3-5.466-1.334-5.466-5.93 0-1.31.467-2.382 1.235-3.222-.124-.303-.535-1.523.116-3.176 0 0 1.008-.322 3.3 1.23a11.48 11.48 0 013.004-.404c1.02.005 2.046.138 3.004.404 2.292-1.552 3.3-1.23 3.3-1.23.652 1.653.241 2.873.118 3.176.77.84 1.234 1.912 1.234 3.222 0 4.609-2.804 5.625-5.476 5.92.43.37.823 1.102.823 2.222v3.293c0 .322.218.694.825.576C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+                        </a>
+                        <a href="https://linkedin.com/in/zeyad-yasser-213312297" target="_blank" class="p-2 rounded-lg bg-slate-900 border border-slate-800 hover:text-white hover:border-slate-600 transition" title="LinkedIn Profile">
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                        </a>
+                        <a href="mailto:zeyady2233@gmail.com" class="p-2 rounded-lg bg-slate-900 border border-slate-800 hover:text-white hover:border-slate-600 transition" title="Email Direct">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Hero Right: Interactive Portrait & Live Floating Cards -->
+                <div class="lg:col-span-5 flex justify-center relative">
+                    <div class="relative w-72 sm:w-80 md:w-96">
+                        
+                        <!-- Glowing aura background -->
+                        <div class="absolute inset-0 bg-gradient-to-tr from-brand-500 to-indigo-600 rounded-3xl blur-2xl opacity-30 transform -rotate-6 scale-105"></div>
+                        
+                        <!-- Main Portrait Frame -->
+                        <div class="relative rounded-3xl overflow-hidden border-2 border-slate-700/80 bg-slate-900 shadow-2xl">
+                            <img src="./ZEYAD.jpg" alt="Zeyad Yasser" class="w-full h-auto object-cover transform hover:scale-105 transition-transform duration-500">
+                            
+                            <!-- Bottom Gradient Bar -->
+                            <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950 via-slate-950/80 to-transparent p-5 text-center">
+                                <h3 class="text-white font-bold text-lg">Zeyad Yasser</h3>
+                                <p class="text-xs text-brand-400 font-mono">IT Systems Leader & Developer</p>
+                            </div>
+                        </div>
+
+                        <!-- Floating Stat Badge 1: Repositories -->
+                        <div class="absolute -top-6 -left-6 glass-card p-3 rounded-2xl flex items-center gap-3 shadow-xl">
+                            <div class="w-10 h-10 rounded-xl bg-brand-500/20 text-brand-400 flex items-center justify-center font-bold text-lg">
+                                21
+                            </div>
+                            <div class="text-left">
+                                <div class="text-xs text-slate-400">GitHub Repos</div>
+                                <div class="text-xs font-bold text-white">Full-Stack & Systems</div>
+                            </div>
+                        </div>
+
+                        <!-- Floating Stat Badge 2: Medical IT -->
+                        <div class="absolute -bottom-6 -right-6 glass-card p-3 rounded-2xl flex items-center gap-3 shadow-xl border border-teal-500/30">
+                            <div class="w-10 h-10 rounded-xl bg-teal-500/20 text-teal-400 flex items-center justify-center font-bold">
+                                🏥
+                            </div>
+                            <div class="text-left">
+                                <div class="text-xs text-teal-300 font-semibold">PACS / RIS / MRI</div>
+                                <div class="text-xs text-slate-400">3 Medical Branches</div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
             </div>
-          </div>
+        </section>
+
+        <!-- STATS BAR -->
+        <section class="border-y border-slate-800/80 bg-slate-950/60 py-10">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+                    <div class="space-y-1">
+                        <div class="text-3xl sm:text-4xl font-extrabold text-brand-400 font-mono">21+</div>
+                        <div class="text-xs uppercase tracking-wider text-slate-400 font-semibold" data-en="GitHub Projects" data-ar="مشاريع جيتهب">GitHub Projects</div>
+                    </div>
+                    <div class="space-y-1">
+                        <div class="text-3xl sm:text-4xl font-extrabold text-teal-400 font-mono">3</div>
+                        <div class="text-xs uppercase tracking-wider text-slate-400 font-semibold" data-en="Medical Branches Managed" data-ar="فروع مراكز طبية تدار">Medical Branches Managed</div>
+                    </div>
+                    <div class="space-y-1">
+                        <div class="text-3xl sm:text-4xl font-extrabold text-indigo-400 font-mono">4</div>
+                        <div class="text-xs uppercase tracking-wider text-slate-400 font-semibold" data-en="Enterprise Servers" data-ar="خوادم تشغيل رئيسية">Enterprise Servers</div>
+                    </div>
+                    <div class="space-y-1">
+                        <div class="text-3xl sm:text-4xl font-extrabold text-emerald-400 font-mono">99.9%</div>
+                        <div class="text-xs uppercase tracking-wider text-slate-400 font-semibold" data-en="System Uptime Maintained" data-ar="جاهزية واستقرار الأنظمة">System Uptime Maintained</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT ME SECTION -->
+        <section id="about" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+                <span class="text-xs uppercase tracking-widest font-mono text-brand-400 font-bold" data-en="PROFILE & BACKGROUND" data-ar="الملف الشخصي والخلفية">PROFILE & BACKGROUND</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white" data-en="About Zeyad Yasser" data-ar="نبذة عن زياد ياسر">About Zeyad Yasser</h2>
+                <div class="h-1 w-20 bg-brand-500 mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+                <!-- Second image / Full photo -->
+                <div class="lg:col-span-5 flex justify-center">
+                    <div class="relative rounded-3xl overflow-hidden border border-slate-700/80 shadow-2xl max-w-xs sm:max-w-sm">
+                        <img src="./ZEYAD1.jpg" alt="Zeyad Yasser Full" class="w-full h-auto object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-transparent to-transparent flex items-end p-6">
+                            <div class="text-left">
+                                <p class="text-white font-bold text-base">Zeyad Yasser</p>
+                                <p class="text-xs text-slate-300">Software Engineer & IT Team Leader</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Story & CV Highlights -->
+                <div class="lg:col-span-7 space-y-6">
+                    <h3 class="text-2xl font-bold text-white leading-snug" data-en="Bridging Systems Engineering, Healthcare Medical IT, and Modern Software Development." data-ar="الربط بين هندسة النظم وتكنولوجيا الرعاية الصحية الطبية والبرمجة الحديثة.">
+                        Bridging Systems Engineering, Healthcare Medical IT, and Modern Software Development.
+                    </h3>
+                    
+                    <p class="text-slate-300 leading-relaxed text-sm sm:text-base" data-en="I hold a Bachelor's Degree in Computer Science and Information Technology (Software Engineering) from Beni Suef Technological University (Faculty of Computers & Information). Over the past several years, I have successfully balanced enterprise infrastructure administration with active full-stack software development." data-ar="حاصل على بكالوريوس الحاسبات ومعلومات وتكنولوجيا المعلومات (تخصص هندسة برمجيات) من الجامعة التكنولوجية ببني سويف. على مدار السنوات الماضية، جمعت بين إدارة البنية التحتية والشبكات على المستوى المؤسسي، وتطوير برمجيات الويب المتكاملة.">
+                        I hold a Bachelor's Degree in Computer Science and Information Technology (Software Engineering) from Beni Suef Technological University (Faculty of Computers & Information). Over the past several years, I have successfully balanced enterprise infrastructure administration with active full-stack software development.
+                    </p>
+
+                    <p class="text-slate-300 leading-relaxed text-sm sm:text-base" data-en="Currently, as IT Manager at Gamma Radiology Center, I supervise the technical operations of 3 medical imaging branches. This involves maintaining mission-critical server environments (Millensys PACS, Veeam Backup, SQL DB), configuring Point-to-Point wireless links, supporting Siemens & Toshiba MRI/CT modalities, and minimizing critical clinical downtime." data-ar="حالياً، كمدير تكنولوجيا المعلومات بمركز جاما للأشعة، أشرف على العمليات التقنية لـ 3 فروع طبية متكاملة. يشمل ذلك إدارة خوادم العمليات الحساسة (Millensys PACS، خادم النسخ الاحتياطي Veeam، وقواعد البيانات)، والربط اللاسلكي Point-to-Point، ودعم أجهزة الرنين المغناطيسي والأشعة المقطعية لسيمنز وتوشيبا، وضمان استمرارية التشغيل الطبي دون انقطاع.">
+                        Currently, as IT Manager at Gamma Radiology Center, I supervise the technical operations of 3 medical imaging branches. This involves maintaining mission-critical server environments (Millensys PACS, Veeam Backup, SQL DB), configuring Point-to-Point wireless links, supporting Siemens & Toshiba MRI/CT modalities, and minimizing critical clinical downtime.
+                    </p>
+
+                    <!-- Key Pillars Grid -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                        <div class="p-4 rounded-2xl glass-card border-l-4 border-l-brand-500">
+                            <h4 class="font-bold text-white text-sm mb-1" data-en="Enterprise Systems & Network" data-ar="إدارة النظم والشبكات">Enterprise Systems & Network</h4>
+                            <p class="text-xs text-slate-400" data-en="Multi-branch link stabilization, Veeam backups, domain controls, and zero-downtime troubleshooting." data-ar="ربط الفروع، النسخ الاحتياطي Veeam، إدارة الخوادم، وحل المشكلات الفورية.">Multi-branch link stabilization, Veeam backups, domain controls, and zero-downtime troubleshooting.</p>
+                        </div>
+                        <div class="p-4 rounded-2xl glass-card border-l-4 border-l-teal-500">
+                            <h4 class="font-bold text-white text-sm mb-1" data-en="Medical Healthcare IT" data-ar="تكنولوجيا الأشعة والأنظمة الطبية">Medical Healthcare IT</h4>
+                            <p class="text-xs text-slate-400" data-en="Millensys PACS, RIS scheduling, DICOM Modality Worklists, MRI & CT station maintenance." data-ar="أنظمة Millensys PACS، مواعيد RIS، بروتوكول DICOM، وصيانة محطات الأشعة والرنين.">Millensys PACS, RIS scheduling, DICOM Modality Worklists, MRI & CT station maintenance.</p>
+                        </div>
+                        <div class="p-4 rounded-2xl glass-card border-l-4 border-l-indigo-500">
+                            <h4 class="font-bold text-white text-sm mb-1" data-en="Full-Stack Web Engineering" data-ar="تطوير برمجيات الويب المتكاملة">Full-Stack Web Engineering</h4>
+                            <p class="text-xs text-slate-400" data-en="Building scalable applications with PHP, Laravel, Blade, JavaScript, Tailwind, and MySQL." data-ar="بناء تطبيقات ويب قوية باستخدام PHP و Laravel و Blade و Tailwind و MySQL.">Building scalable applications with PHP, Laravel, Blade, JavaScript, Tailwind, and MySQL.</p>
+                        </div>
+                        <div class="p-4 rounded-2xl glass-card border-l-4 border-l-amber-500">
+                            <h4 class="font-bold text-white text-sm mb-1" data-en="Software QA & Testing" data-ar="جودة البرمجيات واختبار النظم">Software QA & Testing</h4>
+                            <p class="text-xs text-slate-400" data-en="DEPI certified software tester with rigorous manual & automated testing practices." data-ar="معتمد من مبادرة رواد مصر الرقمية (DEPI) في اختبار البرمجيات وكتابة سيناريوهات الفحص.">DEPI certified software tester with rigorous manual & automated testing practices.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SPECIAL FEATURE: MEDICAL HEALTHCARE IT & RADIOLOGY SYSTEMS -->
+        <section id="medical-it" class="py-16 bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 border-y border-teal-900/40 relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col md:flex-row items-start md:items-center justify-between mb-12 gap-6">
+                    <div>
+                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-950 border border-teal-500/40 text-teal-400 text-xs font-bold mb-3">
+                            <span class="w-2 h-2 rounded-full bg-teal-400 animate-ping"></span>
+                            CORE SPECIALIZATION
+                        </div>
+                        <h2 class="text-3xl font-extrabold text-white">
+                            Medical Healthcare IT & Radiology Systems
+                        </h2>
+                        <p class="text-slate-400 text-sm mt-1">Specialized engineering bridging clinical diagnostic devices with enterprise digital workflows</p>
+                    </div>
+                    <button onclick="filterProjectsByCategory('medical')" class="px-5 py-2.5 rounded-xl bg-teal-500/20 hover:bg-teal-500/30 border border-teal-500/50 text-teal-300 text-xs font-bold transition flex items-center gap-2">
+                        <span>View 6 Medical Systems</span>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                    </button>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- Feature Card 1: PACS & DICOM -->
+                    <div class="glass-card p-6 rounded-2xl border-t-2 border-t-teal-400 space-y-4">
+                        <div class="w-12 h-12 rounded-xl bg-teal-500/20 text-teal-400 flex items-center justify-center font-bold text-xl">
+                            🩻
+                        </div>
+                        <h3 class="text-lg font-bold text-white">PACS & DICOM Modality Worklists</h3>
+                        <p class="text-xs text-slate-300 leading-relaxed">
+                            Administering <b>Millensys PACS</b> servers across multiple clinical locations. Configured <b>DICOM Modality Worklists (MWL)</b> to seamlessly stream patient orders to modalities, eliminating human transcription errors.
+                        </p>
+                        <div class="pt-2 flex flex-wrap gap-1.5">
+                            <span class="text-[10px] px-2 py-0.5 rounded bg-teal-950 text-teal-300 border border-teal-800">Millensys</span>
+                            <span class="text-[10px] px-2 py-0.5 rounded bg-teal-950 text-teal-300 border border-teal-800">DICOM standard</span>
+                            <span class="text-[10px] px-2 py-0.5 rounded bg-teal-950 text-teal-300 border border-teal-800">Orthanc</span>
+                        </div>
+                    </div>
+
+                    <!-- Feature Card 2: Radiologic Devices Support -->
+                    <div class="glass-card p-6 rounded-2xl border-t-2 border-t-brand-400 space-y-4">
+                        <div class="w-12 h-12 rounded-xl bg-brand-500/20 text-brand-400 flex items-center justify-center font-bold text-xl">
+                            🏥
+                        </div>
+                        <h3 class="text-lg font-bold text-white">Modality Device Integration (MRI, CT, X-Ray)</h3>
+                        <p class="text-xs text-slate-300 leading-relaxed">
+                            Hands-on technical coordination with global equipment manufacturers including <b>Siemens Healthineers</b> and <b>Toshiba</b>. Maintaining console workstations, image routing, and diagnostic displays.
+                        </p>
+                        <div class="pt-2 flex flex-wrap gap-1.5">
+                            <span class="text-[10px] px-2 py-0.5 rounded bg-brand-950 text-brand-300 border border-brand-800">Siemens MRI</span>
+                            <span class="text-[10px] px-2 py-0.5 rounded bg-brand-950 text-brand-300 border border-brand-800">Toshiba CT</span>
+                            <span class="text-[10px] px-2 py-0.5 rounded bg-brand-950 text-brand-300 border border-brand-800">Digital X-Ray</span>
+                        </div>
+                    </div>
+
+                    <!-- Feature Card 3: Enterprise Disaster Recovery & Point-to-Point Links -->
+                    <div class="glass-card p-6 rounded-2xl border-t-2 border-t-indigo-400 space-y-4">
+                        <div class="w-12 h-12 rounded-xl bg-indigo-500/20 text-indigo-400 flex items-center justify-center font-bold text-xl">
+                            📡
+                        </div>
+                        <h3 class="text-lg font-bold text-white">Point-to-Point Links & Veeam Backup</h3>
+                        <p class="text-xs text-slate-300 leading-relaxed">
+                            Engineered high-speed wireless <b>Point-to-Point branch links</b> uniting 3 clinics. Automated daily incremental and full backup regimes via <b>Veeam</b> and resilient SQL database replication.
+                        </p>
+                        <div class="pt-2 flex flex-wrap gap-1.5">
+                            <span class="text-[10px] px-2 py-0.5 rounded bg-indigo-950 text-indigo-300 border border-indigo-800">Veeam Backup</span>
+                            <span class="text-[10px] px-2 py-0.5 rounded bg-indigo-950 text-indigo-300 border border-indigo-800">Wireless P2P</span>
+                            <span class="text-[10px] px-2 py-0.5 rounded bg-indigo-950 text-indigo-300 border border-indigo-800">SQL Clustering</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- EXPERIENCE & TIMELINE -->
+        <section id="experience" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+                <span class="text-xs uppercase tracking-widest font-mono text-brand-400 font-bold" data-en="CAREER JOURNEY" data-ar="المسار المهني">CAREER JOURNEY</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white" data-en="Work Experience & Training" data-ar="الخبرات العملية والتدريب">Work Experience & Training</h2>
+                <div class="h-1 w-20 bg-brand-500 mx-auto rounded-full"></div>
+            </div>
+
+            <div class="relative border-l-2 border-slate-800 ml-4 md:ml-32 space-y-12">
+
+                <!-- Timeline Item 1: Gamma Radiology Center -->
+                <div class="relative pl-8 group">
+                    <div class="absolute -left-[17px] top-1.5 w-8 h-8 rounded-full bg-slate-900 border-2 border-teal-400 flex items-center justify-center text-teal-400 font-bold text-xs shadow-lg shadow-teal-500/30 group-hover:scale-110 transition-transform">
+                        🏥
+                    </div>
+                    <div class="glass-card p-6 rounded-2xl space-y-3 border-teal-500/30">
+                        <div class="flex flex-wrap items-center justify-between gap-2">
+                            <div>
+                                <span class="px-2.5 py-1 rounded-md bg-teal-500/20 text-teal-300 text-xs font-bold font-mono">2024 – PRESENT</span>
+                                <h3 class="text-xl font-bold text-white mt-1">IT Manager & Technical Team Leader</h3>
+                                <p class="text-sm font-semibold text-teal-400">Gamma Radiology Center (3 Medical Branches)</p>
+                            </div>
+                            <span class="text-xs text-slate-400 bg-slate-800/80 px-3 py-1 rounded-full border border-slate-700">Full-Time Leadership</span>
+                        </div>
+                        <ul class="text-xs sm:text-sm text-slate-300 space-y-2 list-disc list-inside leading-relaxed pt-1">
+                            <li>Direct IT operations, system reliability, and technical support across 3 medical imaging branches.</li>
+                            <li>Administer 4 enterprise servers: <b>Millensys PACS</b> imaging server, <b>Veeam Backup</b> & replication server, <b>Database Server</b>, and print server.</li>
+                            <li>Support diagnostic radiology modalities (MRI, CT, digital X-Ray) from vendors including <b>Siemens</b> and <b>Toshiba</b>.</li>
+                            <li>Maintain wireless Point-to-Point branch links, access controls, network printers, and surveillance infrastructure.</li>
+                            <li>Guaranteed 99.9% clinical system uptime through proactive monitoring, disaster recovery drills, and fast incident response.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 2: Elmarwa Hotel -->
+                <div class="relative pl-8 group">
+                    <div class="absolute -left-[17px] top-1.5 w-8 h-8 rounded-full bg-slate-900 border-2 border-brand-400 flex items-center justify-center text-brand-400 font-bold text-xs shadow-lg shadow-brand-500/30 group-hover:scale-110 transition-transform">
+                        🏨
+                    </div>
+                    <div class="glass-card p-6 rounded-2xl space-y-3">
+                        <div class="flex flex-wrap items-center justify-between gap-2">
+                            <div>
+                                <span class="px-2.5 py-1 rounded-md bg-brand-500/20 text-brand-300 text-xs font-bold font-mono">2024</span>
+                                <h3 class="text-xl font-bold text-white mt-1">IT Support Specialist & System Administrator</h3>
+                                <p class="text-sm font-semibold text-brand-400">Elmarwa Hotel</p>
+                            </div>
+                            <span class="text-xs text-slate-400 bg-slate-800/80 px-3 py-1 rounded-full border border-slate-700">Contract Project</span>
+                        </div>
+                        <ul class="text-xs sm:text-sm text-slate-300 space-y-2 list-disc list-inside leading-relaxed pt-1">
+                            <li>Architected and deployed complete hotel IT management system, reservations software, and guest network infrastructure.</li>
+                            <li>Trained hotel staff and front-desk personnel on digital reservation workflows and daily system operations.</li>
+                            <li>Configured network segmentation, firewall policies, high-availability Wi-Fi, and POS terminals.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 3: DEPI - Egypt Digital Pioneers Initiative -->
+                <div class="relative pl-8 group">
+                    <div class="absolute -left-[17px] top-1.5 w-8 h-8 rounded-full bg-slate-900 border-2 border-indigo-400 flex items-center justify-center text-indigo-400 font-bold text-xs shadow-lg shadow-indigo-500/30 group-hover:scale-110 transition-transform">
+                        🧪
+                    </div>
+                    <div class="glass-card p-6 rounded-2xl space-y-3">
+                        <div class="flex flex-wrap items-center justify-between gap-2">
+                            <div>
+                                <span class="px-2.5 py-1 rounded-md bg-indigo-500/20 text-indigo-300 text-xs font-bold font-mono">2025 – 2026</span>
+                                <h3 class="text-xl font-bold text-white mt-1">Software Quality Assurance & Tester</h3>
+                                <p class="text-sm font-semibold text-indigo-400">Egypt Digital Pioneers Initiative (DEPI)</p>
+                            </div>
+                            <span class="text-xs text-slate-400 bg-slate-800/80 px-3 py-1 rounded-full border border-slate-700">Specialized Track</span>
+                        </div>
+                        <ul class="text-xs sm:text-sm text-slate-300 space-y-2 list-disc list-inside leading-relaxed pt-1">
+                            <li>Mastered manual and automated testing principles, test plan design, test cases, and edge-case validation.</li>
+                            <li>Executed functional, integration, regression, and user acceptance testing (UAT) on enterprise web platforms.</li>
+                            <li>Reported defects via standard issue tracking lifecycles and verified bug resolution with developer teams.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 4: Route Academy -->
+                <div class="relative pl-8 group">
+                    <div class="absolute -left-[17px] top-1.5 w-8 h-8 rounded-full bg-slate-900 border-2 border-purple-400 flex items-center justify-center text-purple-400 font-bold text-xs shadow-lg shadow-purple-500/30 group-hover:scale-110 transition-transform">
+                        🐘
+                    </div>
+                    <div class="glass-card p-6 rounded-2xl space-y-3">
+                        <div class="flex flex-wrap items-center justify-between gap-2">
+                            <div>
+                                <span class="px-2.5 py-1 rounded-md bg-purple-500/20 text-purple-300 text-xs font-bold font-mono">2025</span>
+                                <h3 class="text-xl font-bold text-white mt-1">PHP & Full-Stack Web Development</h3>
+                                <p class="text-sm font-semibold text-purple-400">Route Academy</p>
+                            </div>
+                            <span class="text-xs text-slate-400 bg-slate-800/80 px-3 py-1 rounded-full border border-slate-700">Professional Track</span>
+                        </div>
+                        <ul class="text-xs sm:text-sm text-slate-300 space-y-2 list-disc list-inside leading-relaxed pt-1">
+                            <li>Advanced backend development using PHP, Laravel, Blade templates, and MySQL relational modeling.</li>
+                            <li>Engineered multiple commercial web systems including a university management platform and hotel booking portal.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 5: Elzero Web School -->
+                <div class="relative pl-8 group">
+                    <div class="absolute -left-[17px] top-1.5 w-8 h-8 rounded-full bg-slate-900 border-2 border-amber-400 flex items-center justify-center text-amber-400 font-bold text-xs shadow-lg shadow-amber-500/30 group-hover:scale-110 transition-transform">
+                        💻
+                    </div>
+                    <div class="glass-card p-6 rounded-2xl space-y-3">
+                        <div class="flex flex-wrap items-center justify-between gap-2">
+                            <div>
+                                <span class="px-2.5 py-1 rounded-md bg-amber-500/20 text-amber-300 text-xs font-bold font-mono">2023</span>
+                                <h3 class="text-xl font-bold text-white mt-1">C++ & Python Developer Intern</h3>
+                                <p class="text-sm font-semibold text-amber-400">Elzero Web School</p>
+                            </div>
+                            <span class="text-xs text-slate-400 bg-slate-800/80 px-3 py-1 rounded-full border border-slate-700">Internship</span>
+                        </div>
+                        <ul class="text-xs sm:text-sm text-slate-300 space-y-2 list-disc list-inside leading-relaxed pt-1">
+                            <li>Deep dive into C++ programming, memory management, OOP paradigms, data structures, and algorithms.</li>
+                            <li>Built backend web prototypes with Python and Django framework.</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- EDUCATION & QUALIFICATIONS -->
+        <section id="education" class="py-16 bg-slate-950/70 border-t border-slate-800/80">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-12 space-y-3">
+                    <span class="text-xs uppercase tracking-widest font-mono text-brand-400 font-bold">ACADEMIC BACKGROUND</span>
+                    <h2 class="text-3xl font-extrabold text-white">Education & Certifications</h2>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+                    <!-- Degree Card -->
+                    <div class="glass-card p-6 rounded-2xl border-l-4 border-l-brand-500 space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold font-mono text-brand-400">2022 – 2026</span>
+                            <span class="text-[10px] px-2 py-0.5 rounded bg-brand-950 text-brand-300 border border-brand-800">Bachelor's Degree</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-white">Bachelor in Computer Science & Information Technology</h3>
+                        <p class="text-xs text-slate-300">
+                            <b>Faculty of Computers and Information</b><br>
+                            Egyptian Korean University for Industrial Technology and Energy / Beni Suef Technological University
+                        </p>
+                        <p class="text-xs text-brand-400 font-semibold">Specialization: Software Engineering</p>
+                    </div>
+
+                    <!-- Certifications & Hackathons Card -->
+                    <div class="glass-card p-6 rounded-2xl border-l-4 border-l-indigo-500 space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold font-mono text-indigo-400">HONORS & TRACKS</span>
+                            <span class="text-[10px] px-2 py-0.5 rounded bg-indigo-950 text-indigo-300 border border-indigo-800">Credentials</span>
+                        </div>
+                        <ul class="text-xs text-slate-300 space-y-2">
+                            <li class="flex items-start gap-2">
+                                <span class="text-indigo-400 font-bold">✓</span>
+                                <div><b>DEPI</b> - Software Testing & QA Professional Certification (MCIT)</div>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-indigo-400 font-bold">✓</span>
+                                <div><b>NASA Space Apps Cairo</b> - Official Participant (Cosmic Watch Project)</div>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-indigo-400 font-bold">✓</span>
+                                <div><b>Route Academy</b> - Certified PHP Full-Stack Engineering</div>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-indigo-400 font-bold">✓</span>
+                                <div><b>Elzero Web School</b> - C++ OOP & Algorithms Proficiency</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- COMPREHENSIVE GITHUB PROJECTS SHOWCASE (ALL 21 REPOSITORIES) -->
+        <section id="projects" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12 space-y-3">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-950/60 border border-brand-500/40 text-brand-400 text-xs font-mono font-bold">
+                    <span>COMPLETE REPOSITORY SHOWCASE</span>
+                </div>
+                <h2 class="text-3xl sm:text-5xl font-extrabold text-white" data-en="All GitHub Projects (21)" data-ar="جميع مشاريع جيت هب (21)">All GitHub Projects (21)</h2>
+                <p class="text-slate-400 text-sm sm:text-base" data-en="Every repository from github.com/ZeyadR5 categorized with source code, live demos, and technical architecture." data-ar="جميع مستودعات الحساب على GitHub مصنفة مع روابط المعاينة المباشرة والشفرة البرمجية.">
+                    Every repository from <a href="https://github.com/ZeyadR5?tab=repositories" target="_blank" class="text-brand-400 underline hover:text-brand-300">github.com/ZeyadR5</a> categorized with source code, live demos, and technical architecture.
+                </p>
+                <div class="h-1 w-20 bg-brand-500 mx-auto rounded-full mt-2"></div>
+            </div>
+
+            <!-- Search Bar & Filters -->
+            <div class="glass-card p-4 rounded-2xl mb-10 space-y-4">
+                <div class="flex flex-col md:flex-row gap-4 items-center justify-between">
+                    <!-- Search Input -->
+                    <div class="relative w-full md:w-96">
+                        <svg class="w-5 h-5 absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+                        <input type="text" id="project-search" placeholder="Search by name, tech (PHP, Laravel, JS, PACS)..." class="w-full pl-11 pr-4 py-2.5 rounded-xl bg-slate-900/90 border border-slate-700 text-sm text-white focus:outline-none focus:border-brand-500 transition">
+                    </div>
+
+                    <!-- Category Filter Buttons -->
+                    <div class="flex flex-wrap gap-2 justify-center" id="filter-buttons">
+                        <button class="filter-btn active px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-brand-600 text-white transition" data-filter="all">
+                            All (<span id="count-all">21</span>)
+                        </button>
+                        <button class="filter-btn px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-slate-800 text-slate-300 hover:bg-slate-700 transition" data-filter="medical">
+                            Medical & Healthcare (<span id="count-medical">6</span>)
+                        </button>
+                        <button class="filter-btn px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-slate-800 text-slate-300 hover:bg-slate-700 transition" data-filter="management">
+                            Enterprise & Systems (<span id="count-management">6</span>)
+                        </button>
+                        <button class="filter-btn px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-slate-800 text-slate-300 hover:bg-slate-700 transition" data-filter="frontend">
+                            Web & Interactive (<span id="count-frontend">6</span>)
+                        </button>
+                        <button class="filter-btn px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-slate-800 text-slate-300 hover:bg-slate-700 transition" data-filter="hackathon">
+                            NASA & Testing (<span id="count-hackathon">3</span>)
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Projects Grid (Rendered dynamically via JavaScript) -->
+            <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Project cards will be injected here -->
+            </div>
+
+            <!-- Empty Search State -->
+            <div id="no-projects-msg" class="hidden text-center py-16 space-y-3">
+                <div class="text-4xl">🔍</div>
+                <h3 class="text-lg font-bold text-white">No projects found</h3>
+                <p class="text-xs text-slate-400">Try adjusting your search query or selected category filter.</p>
+            </div>
+        </section>
+
+        <!-- SKILLS MATRIX -->
+        <section id="skills" class="py-20 bg-slate-950/60 border-t border-slate-800/80">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+                    <span class="text-xs uppercase tracking-widest font-mono text-brand-400 font-bold">TECH STACK & TOOLS</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white" data-en="Technical Competencies" data-ar="المهارات التقنية">Technical Competencies</h2>
+                    <div class="h-1 w-20 bg-brand-500 mx-auto rounded-full"></div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    
+                    <!-- Skill Group 1: Systems & Medical IT -->
+                    <div class="glass-card p-6 rounded-2xl border-t-2 border-t-teal-400 space-y-4">
+                        <div class="flex items-center gap-3">
+                            <span class="text-2xl">🏥</span>
+                            <h3 class="font-bold text-white text-base">Systems & Medical IT</h3>
+                        </div>
+                        <div class="space-y-3 text-xs">
+                            <div>
+                                <div class="flex justify-between text-slate-300 mb-1">
+                                    <span>Millensys PACS & RIS</span>
+                                    <span class="font-mono text-teal-400">95%</span>
+                                </div>
+                                <div class="w-full bg-slate-800 rounded-full h-1.5"><div class="bg-teal-400 h-1.5 rounded-full" style="width: 95%"></div></div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-slate-300 mb-1">
+                                    <span>Veeam Backup & Replication</span>
+                                    <span class="font-mono text-teal-400">90%</span>
+                                </div>
+                                <div class="w-full bg-slate-800 rounded-full h-1.5"><div class="bg-teal-400 h-1.5 rounded-full" style="width: 90%"></div></div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-slate-300 mb-1">
+                                    <span>DICOM Modality Worklists</span>
+                                    <span class="font-mono text-teal-400">90%</span>
+                                </div>
+                                <div class="w-full bg-slate-800 rounded-full h-1.5"><div class="bg-teal-400 h-1.5 rounded-full" style="width: 90%"></div></div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-slate-300 mb-1">
+                                    <span>P2P Links & Multi-branch Net</span>
+                                    <span class="font-mono text-teal-400">88%</span>
+                                </div>
+                                <div class="w-full bg-slate-800 rounded-full h-1.5"><div class="bg-teal-400 h-1.5 rounded-full" style="width: 88%"></div></div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-slate-300 mb-1">
+                                    <span>Windows & Linux Server</span>
+                                    <span class="font-mono text-teal-400">85%</span>
+                                </div>
+                                <div class="w-full bg-slate-800 rounded-full h-1.5"><div class="bg-teal-400 h-1.5 rounded-full" style="width: 85%"></div></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Skill Group 2: Backend Development -->
+                    <div class="glass-card p-6 rounded-2xl border-t-2 border-t-brand-400 space-y-4">
+                        <div class="flex items-center gap-3">
+                            <span class="text-2xl">⚙️</span>
+                            <h3 class="font-bold text-white text-base">Backend & APIs</h3>
+                        </div>
+                        <div class="space-y-3 text-xs">
+                            <div>
+                                <div class="flex justify-between text-slate-300 mb-1">
+                                    <span>PHP & Laravel / Blade</span>
+                                    <span class="font-mono text-brand-400">90%</span>
+                                </div>
+                                <div class="w-full bg-slate-800 rounded-full h-1.5"><div class="bg-brand-400 h-1.5 rounded-full" style="width: 90%"></div></div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-slate-300 mb-1">
+                                    <span>MySQL & Relational Databases</span>
+                                    <span class="font-mono text-brand-400">88%</span>
+                                </div>
+                                <div class="w-full bg-slate-800 rounded-full h-1.5"><div class="bg-brand-400 h-1.5 rounded-full" style="width: 88%"></div></div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-slate-300 mb-1">
+                                    <span>Python & Django</span>
+                                    <span class="font-mono text-brand-400">75%</span>
+                                </div>
+                                <div class="w-full bg-slate-800 rounded-full h-1.5"><div class="bg-brand-400 h-1.5 rounded-full" style="width: 75%"></div></div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-slate-300 mb-1">
+                                    <span>C++ & OOP Fundamentals</span>
+                                    <span class="font-mono text-brand-400">75%</span>
+                                </div>
+                                <div class="w-full bg-slate-800 rounded-full h-1.5"><div class="bg-brand-400 h-1.5 rounded-full" style="width: 75%"></div></div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-slate-300 mb-1">
+                                    <span>RESTful APIs & Postman</span>
+                                    <span class="font-mono text-brand-400">85%</span>
+                                </div>
+                                <div class="w-full bg-slate-800 rounded-full h-1.5"><div class="bg-brand-400 h-1.5 rounded-full" style="width: 85%"></div></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Skill Group 3: Frontend & UI -->
+                    <div class="glass-card p-6 rounded-2xl border-t-2 border-t-indigo-400 space-y-4">
+                        <div class="flex items-center gap-3">
+                            <span class="text-2xl">🎨</span>
+                            <h3 class="font-bold text-white text-base">Frontend & Mobile</h3>
+                        </div>
+                        <div class="space-y-3 text-xs">
+                            <div>
+                                <div class="flex justify-between text-slate-300 mb-1">
+                                    <span>Tailwind CSS</span>
+                                    <span class="font-mono text-indigo-400">95%</span>
+                                </div>
+                                <div class="w-full bg-slate-800 rounded-full h-1.5"><div class="bg-indigo-400 h-1.5 rounded-full" style="width: 95%"></div></div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-slate-300 mb-1">
+                                    <span>HTML5 & Responsive Layouts</span>
+                                    <span class="font-mono text-indigo-400">95%</span>
+                                </div>
+                                <div class="w-full bg-slate-800 rounded-full h-1.5"><div class="bg-indigo-400 h-1.5 rounded-full" style="width: 95%"></div></div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-slate-300 mb-1">
+                                    <span>JavaScript (ES6+)</span>
+                                    <span class="font-mono text-indigo-400">80%</span>
+                                </div>
+                                <div class="w-full bg-slate-800 rounded-full h-1.5"><div class="bg-indigo-400 h-1.5 rounded-full" style="width: 80%"></div></div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-slate-300 mb-1">
+                                    <span>Flutter Mobile Basics</span>
+                                    <span class="font-mono text-indigo-400">65%</span>
+                                </div>
+                                <div class="w-full bg-slate-800 rounded-full h-1.5"><div class="bg-indigo-400 h-1.5 rounded-full" style="width: 65%"></div></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Skill Group 4: QA & Automation -->
+                    <div class="glass-card p-6 rounded-2xl border-t-2 border-t-emerald-400 space-y-4">
+                        <div class="flex items-center gap-3">
+                            <span class="text-2xl">⚡</span>
+                            <h3 class="font-bold text-white text-base">QA, DevOps & Cloud</h3>
+                        </div>
+                        <div class="space-y-3 text-xs">
+                            <div>
+                                <div class="flex justify-between text-slate-300 mb-1">
+                                    <span>Software Testing (DEPI)</span>
+                                    <span class="font-mono text-emerald-400">85%</span>
+                                </div>
+                                <div class="w-full bg-slate-800 rounded-full h-1.5"><div class="bg-emerald-400 h-1.5 rounded-full" style="width: 85%"></div></div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-slate-300 mb-1">
+                                    <span>n8n Workflow Automation</span>
+                                    <span class="font-mono text-emerald-400">85%</span>
+                                </div>
+                                <div class="w-full bg-slate-800 rounded-full h-1.5"><div class="bg-emerald-400 h-1.5 rounded-full" style="width: 85%"></div></div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-slate-300 mb-1">
+                                    <span>Supabase & Cloud DBs</span>
+                                    <span class="font-mono text-emerald-400">80%</span>
+                                </div>
+                                <div class="w-full bg-slate-800 rounded-full h-1.5"><div class="bg-emerald-400 h-1.5 rounded-full" style="width: 80%"></div></div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-slate-300 mb-1">
+                                    <span>Git & GitHub Workflows</span>
+                                    <span class="font-mono text-emerald-400">90%</span>
+                                </div>
+                                <div class="w-full bg-slate-800 rounded-full h-1.5"><div class="bg-emerald-400 h-1.5 rounded-full" style="width: 90%"></div></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- SERVICES OFFERED -->
+        <section id="services" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+                <span class="text-xs uppercase tracking-widest font-mono text-brand-400 font-bold">SOLUTIONS</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white" data-en="Services & Consulting" data-ar="الخدمات والحلول">Services & Consulting</h2>
+                <div class="h-1 w-20 bg-brand-500 mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Service 1 -->
+                <div class="glass-card p-6 rounded-2xl space-y-3">
+                    <div class="w-12 h-12 rounded-xl bg-brand-500/20 text-brand-400 flex items-center justify-center font-bold text-xl">
+                        🖥️
+                    </div>
+                    <h3 class="text-lg font-bold text-white">IT Infrastructure & Support</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Design, deployment, and management of business IT systems, multi-branch point-to-point links, backup automation, and active server maintenance.
+                    </p>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="glass-card p-6 rounded-2xl space-y-3">
+                    <div class="w-12 h-12 rounded-xl bg-teal-500/20 text-teal-400 flex items-center justify-center font-bold text-xl">
+                        🏥
+                    </div>
+                    <h3 class="text-lg font-bold text-white">Medical IT & PACS / RIS</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        End-to-end integration of healthcare radiology platforms (Millensys PACS, RIS), DICOM Modality Worklists, and diagnostic device synchronization.
+                    </p>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="glass-card p-6 rounded-2xl space-y-3">
+                    <div class="w-12 h-12 rounded-xl bg-indigo-500/20 text-indigo-400 flex items-center justify-center font-bold text-xl">
+                        🌐
+                    </div>
+                    <h3 class="text-lg font-bold text-white">Full-Stack Web Development</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Engineering custom web portals, booking engines, management dashboards, and APIs using PHP, Laravel, Blade, MySQL, and modern Tailwind CSS.
+                    </p>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="glass-card p-6 rounded-2xl space-y-3">
+                    <div class="w-12 h-12 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold text-xl">
+                        🔍
+                    </div>
+                    <h3 class="text-lg font-bold text-white">Software QA & Automation</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Professional software quality assurance, manual & automated test design, bug detection, and workflow automation using n8n and Supabase.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT SECTION -->
+        <section id="contact" class="py-20 bg-gradient-to-t from-slate-950 via-slate-900 to-slate-950 border-t border-slate-800/80">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+                    <span class="text-xs uppercase tracking-widest font-mono text-brand-400 font-bold" data-en="GET IN TOUCH" data-ar="تواصل معي">GET IN TOUCH</span>
+                    <h2 class="text-3xl sm:text-5xl font-extrabold text-white" data-en="Let's Build & Collaborate" data-ar="لنعمل معاً ونتعاون">Let's Build & Collaborate</h2>
+                    <p class="text-slate-400 text-sm sm:text-base">Have an opportunity, need IT systems consulting, or looking for a software engineer? Reach out directly.</p>
+                    <div class="h-1 w-20 bg-brand-500 mx-auto rounded-full"></div>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+                    
+                    <!-- Contact Cards & Info -->
+                    <div class="lg:col-span-5 space-y-4">
+                        
+                        <!-- WhatsApp Card -->
+                        <a href="https://wa.me/201024474059" target="_blank" class="glass-card p-5 rounded-2xl flex items-center justify-between group">
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold text-xl group-hover:scale-110 transition-transform">
+                                    💬
+                                </div>
+                                <div>
+                                    <div class="text-xs text-emerald-400 font-semibold font-mono">WHATSAPP INSTANT CHAT</div>
+                                    <div class="text-white font-bold text-sm sm:text-base">+20 102 447 4059</div>
+                                </div>
+                            </div>
+                            <span class="text-slate-400 group-hover:text-emerald-400 transition-colors">➜</span>
+                        </a>
+
+                        <!-- Email Card -->
+                        <div class="glass-card p-5 rounded-2xl flex items-center justify-between">
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-xl bg-brand-500/20 text-brand-400 flex items-center justify-center font-bold text-xl">
+                                    ✉️
+                                </div>
+                                <div>
+                                    <div class="text-xs text-brand-400 font-semibold font-mono">DIRECT EMAIL</div>
+                                    <a href="mailto:zeyady2233@gmail.com" class="text-white font-bold text-sm sm:text-base hover:underline">zeyady2233@gmail.com</a>
+                                </div>
+                            </div>
+                            <button onclick="copyToClipboard('zeyady2233@gmail.com', 'Email copied!')" class="p-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs" title="Copy Email">
+                                Copy
+                            </button>
+                        </div>
+
+                        <!-- Phone Card -->
+                        <div class="glass-card p-5 rounded-2xl flex items-center justify-between">
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-xl bg-indigo-500/20 text-indigo-400 flex items-center justify-center font-bold text-xl">
+                                    📞
+                                </div>
+                                <div>
+                                    <div class="text-xs text-indigo-400 font-semibold font-mono">PHONE NUMBER</div>
+                                    <a href="tel:+201024474059" class="text-white font-bold text-sm sm:text-base hover:underline">01024474059</a>
+                                </div>
+                            </div>
+                            <button onclick="copyToClipboard('01024474059', 'Phone copied!')" class="p-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs" title="Copy Phone">
+                                Copy
+                            </button>
+                        </div>
+
+                        <!-- Location & LinkedIn -->
+                        <div class="glass-card p-5 rounded-2xl flex items-center justify-between">
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-xl bg-purple-500/20 text-purple-400 flex items-center justify-center font-bold text-xl">
+                                    📍
+                                </div>
+                                <div>
+                                    <div class="text-xs text-purple-400 font-semibold font-mono">LOCATION</div>
+                                    <div class="text-white font-bold text-sm">Beni Suef / Cairo, Egypt</div>
+                                </div>
+                            </div>
+                            <a href="https://linkedin.com/in/zeyad-yasser-213312297" target="_blank" class="px-3 py-1.5 rounded-lg bg-blue-600/30 text-blue-300 border border-blue-500/40 text-xs font-semibold hover:bg-blue-600/50">
+                                LinkedIn
+                            </a>
+                        </div>
+
+                    </div>
+
+                    <!-- Functional Interactive Message Form -->
+                    <div class="lg:col-span-7">
+                        <div class="glass-card p-8 rounded-3xl">
+                            <h3 class="text-xl font-bold text-white mb-6 flex items-center gap-2">
+                                <span>Send a Direct Message</span>
+                                <span class="text-xs px-2.5 py-0.5 rounded-full bg-brand-950 text-brand-400 border border-brand-800 font-normal">Direct to WhatsApp or Email</span>
+                            </h3>
+
+                            <form id="contact-form" onsubmit="handleContactSubmit(event)" class="space-y-4">
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                    <div>
+                                        <label class="block text-xs font-semibold text-slate-400 mb-1.5">Your Name *</label>
+                                        <input type="text" id="form-name" required placeholder="e.g. John Doe / م. أحمد" class="w-full px-4 py-3 rounded-xl bg-slate-900 border border-slate-700 text-sm text-white focus:outline-none focus:border-brand-500 transition">
+                                    </div>
+                                    <div>
+                                        <label class="block text-xs font-semibold text-slate-400 mb-1.5">Your Email / Phone *</label>
+                                        <input type="text" id="form-contact" required placeholder="Email or Phone Number" class="w-full px-4 py-3 rounded-xl bg-slate-900 border border-slate-700 text-sm text-white focus:outline-none focus:border-brand-500 transition">
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-400 mb-1.5">Subject</label>
+                                    <input type="text" id="form-subject" placeholder="Project inquiry, Job offer, or IT consultation" class="w-full px-4 py-3 rounded-xl bg-slate-900 border border-slate-700 text-sm text-white focus:outline-none focus:border-brand-500 transition">
+                                </div>
+
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-400 mb-1.5">Your Message *</label>
+                                    <textarea id="form-message" rows="4" required placeholder="Describe your project, question, or inquiry..." class="w-full px-4 py-3 rounded-xl bg-slate-900 border border-slate-700 text-sm text-white focus:outline-none focus:border-brand-500 transition"></textarea>
+                                </div>
+
+                                <div class="flex flex-col sm:flex-row gap-3 pt-2">
+                                    <button type="submit" name="action" value="whatsapp" class="flex-1 py-3.5 px-6 rounded-xl font-bold text-sm text-white bg-emerald-600 hover:bg-emerald-500 shadow-lg shadow-emerald-600/30 transition flex items-center justify-center gap-2">
+                                        <span>Send via WhatsApp</span>
+                                        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+                                    </button>
+
+                                    <button type="submit" name="action" value="email" class="flex-1 py-3.5 px-6 rounded-xl font-bold text-sm text-white bg-gradient-to-r from-brand-600 to-indigo-600 hover:from-brand-500 hover:to-indigo-500 shadow-lg shadow-brand-500/30 transition flex items-center justify-center gap-2">
+                                        <span>Send via Email</span>
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-slate-800 bg-slate-950 py-12 relative z-10 text-xs text-slate-500">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-6">
+            <div class="flex items-center gap-3">
+                <img src="./logo.png" alt="Logo" class="h-6 w-auto invert filter brightness-200">
+                <span class="text-slate-400 font-semibold">Zeyad Yasser • Professional Portfolio</span>
+            </div>
+            <div>
+                © 2026 Zeyad Yasser. All rights reserved. Built with modern web standards.
+            </div>
+            <div class="flex items-center gap-4">
+                <a href="https://github.com/ZeyadR5" target="_blank" class="hover:text-white transition">GitHub</a>
+                <a href="https://linkedin.com/in/zeyad-yasser-213312297" target="_blank" class="hover:text-white transition">LinkedIn</a>
+                <a href="#about" class="hover:text-white transition">Back to Top ↑</a>
+            </div>
         </div>
-      </div>
-    </section>
+    </footer>
+
+    <!-- INTERACTIVE CV MODAL (FULL CURRICULUM VITAE) -->
+    <div id="cv-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md hidden transition-opacity duration-300">
+        <div class="relative w-full max-w-4xl max-h-[90vh] flex flex-col bg-slate-900 border border-slate-700/80 rounded-3xl shadow-2xl overflow-hidden animate-fade-in" id="cv-modal-content">
+            
+            <!-- Modal Header (no-print) -->
+            <div class="p-6 border-b border-slate-800 flex items-center justify-between bg-slate-950/80 no-print">
+                <div class="flex items-center gap-3">
+                    <span class="text-2xl">📄</span>
+                    <div>
+                        <h2 class="text-lg font-bold text-white">Curriculum Vitae — Zeyad Yasser</h2>
+                        <p class="text-xs text-slate-400">IT Operations & Systems Leader | Full-Stack Software Engineer</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-2">
+                    <button onclick="window.print()" class="px-3.5 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-200 flex items-center gap-1.5 transition">
+                        <svg class="w-4 h-4 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
+                        <span>Print / Save PDF</span>
+                    </button>
+                    <button onclick="closeCvModal()" class="p-2 rounded-xl text-slate-400 hover:text-white hover:bg-slate-800 transition">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- CV Document Body (Scrollable & Printable) -->
+            <div class="p-6 sm:p-10 overflow-y-auto space-y-8 text-slate-300 text-sm leading-relaxed" id="cv-print-area">
+                
+                <!-- CV Header -->
+                <div class="border-b border-slate-700/80 pb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                    <div>
+                        <h1 class="text-2xl sm:text-3xl font-extrabold text-white">ZEYAD YASSER</h1>
+                        <p class="text-brand-400 font-semibold text-base mt-0.5">IT Operations & Systems Administrator | Software Engineer | Medical IT</p>
+                        <p class="text-xs text-slate-400 mt-1">Beni Suef / Cairo, Egypt • Open for On-Site, Hybrid & Remote Roles</p>
+                    </div>
+                    <div class="text-xs space-y-1 text-slate-300">
+                        <div><b>Email:</b> <a href="mailto:zeyady2233@gmail.com" class="text-brand-400 hover:underline">zeyady2233@gmail.com</a></div>
+                        <div><b>Phone/WhatsApp:</b> <a href="https://wa.me/201024474059" class="text-emerald-400 hover:underline">+20 102 447 4059</a></div>
+                        <div><b>GitHub:</b> <a href="https://github.com/ZeyadR5" target="_blank" class="text-brand-400 hover:underline">github.com/ZeyadR5</a></div>
+                        <div><b>LinkedIn:</b> <a href="https://linkedin.com/in/zeyad-yasser-213312297" target="_blank" class="text-brand-400 hover:underline">linkedin.com/in/zeyad-yasser-213312297</a></div>
+                    </div>
+                </div>
+
+                <!-- Professional Summary -->
+                <div class="space-y-2">
+                    <h2 class="text-sm font-bold text-white uppercase tracking-wider text-brand-400 border-b border-slate-800 pb-1">Professional Summary</h2>
+                    <p class="text-xs sm:text-sm text-slate-300">
+                        Results-driven IT Specialist & Software Engineer with a Bachelor's in Computer Science (Software Engineering). Proven leadership overseeing multi-branch healthcare infrastructure, administering 4 mission-critical servers (Millensys PACS, Veeam Backup, DB, Print), and supporting medical imaging devices (Siemens & Toshiba MRI/CT). Demonstrated proficiency building enterprise full-stack web applications with PHP, Laravel, Blade, MySQL, and Tailwind CSS, backed by specialized software QA & manual/automated testing certification (DEPI).
+                    </p>
+                </div>
+
+                <!-- Work Experience -->
+                <div class="space-y-4">
+                    <h2 class="text-sm font-bold text-white uppercase tracking-wider text-brand-400 border-b border-slate-800 pb-1">Professional Work Experience</h2>
+
+                    <!-- Job 1 -->
+                    <div class="space-y-1">
+                        <div class="flex justify-between items-baseline flex-wrap">
+                            <h3 class="text-sm font-bold text-white">IT Manager & Technical Team Leader</h3>
+                            <span class="text-xs font-mono text-brand-400">2024 – Present</span>
+                        </div>
+                        <div class="text-xs font-semibold text-teal-400">Gamma Radiology Center — 3 Medical Imaging Branches</div>
+                        <ul class="text-xs list-disc list-inside space-y-1 text-slate-300 pt-1">
+                            <li>Oversee end-to-end technical support and infrastructure operations across 3 medical branches.</li>
+                            <li>Administer 4 enterprise servers: Millensys PACS server, Veeam backup server, SQL database server, and centralized print server.</li>
+                            <li>Provide direct operational support for radiology diagnostic scanners including Siemens MRI and Toshiba CT units.</li>
+                            <li>Deployed high-reliability wireless Point-to-Point links connecting all branches with zero latency for real-time PACS study sync.</li>
+                            <li>Maintained near 100% operational uptime through scheduled preventive maintenance and automated backup routines.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Job 2 -->
+                    <div class="space-y-1">
+                        <div class="flex justify-between items-baseline flex-wrap">
+                            <h3 class="text-sm font-bold text-white">IT Support Specialist & Systems Administrator</h3>
+                            <span class="text-xs font-mono text-brand-400">2024</span>
+                        </div>
+                        <div class="text-xs font-semibold text-brand-400">Elmarwa Hotel</div>
+                        <ul class="text-xs list-disc list-inside space-y-1 text-slate-300 pt-1">
+                            <li>Designed and deployed complete hotel management, guest networking, and room reservation infrastructure.</li>
+                            <li>Trained staff on system operations, reservation terminals, and IT troubleshooting best practices.</li>
+                            <li>Managed network segmentation, firewall policies, and secure guest wireless access.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Job 3 -->
+                    <div class="space-y-1">
+                        <div class="flex justify-between items-baseline flex-wrap">
+                            <h3 class="text-sm font-bold text-white">Software Quality Assurance (QA) & Tester</h3>
+                            <span class="text-xs font-mono text-brand-400">2025 – 2026</span>
+                        </div>
+                        <div class="text-xs font-semibold text-indigo-400">Egypt Digital Pioneers Initiative (DEPI)</div>
+                        <ul class="text-xs list-disc list-inside space-y-1 text-slate-300 pt-1">
+                            <li>Performed rigorous manual and automated test suite design, bug logging, and regression testing.</li>
+                            <li>Executed edge-case testing, performance verification, and defect lifecycle management across web platforms.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Job 4 -->
+                    <div class="space-y-1">
+                        <div class="flex justify-between items-baseline flex-wrap">
+                            <h3 class="text-sm font-bold text-white">PHP & Full-Stack Web Development</h3>
+                            <span class="text-xs font-mono text-brand-400">2025</span>
+                        </div>
+                        <div class="text-xs font-semibold text-purple-400">Route Academy</div>
+                        <ul class="text-xs list-disc list-inside space-y-1 text-slate-300 pt-1">
+                            <li>Developed database-driven web systems using PHP, Laravel, Blade, and MySQL for university and enterprise use.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Education -->
+                <div class="space-y-2">
+                    <h2 class="text-sm font-bold text-white uppercase tracking-wider text-brand-400 border-b border-slate-800 pb-1">Education</h2>
+                    <div class="flex justify-between items-baseline flex-wrap">
+                        <h3 class="text-sm font-bold text-white">Bachelor of Computer Science & Information Technology</h3>
+                        <span class="text-xs font-mono text-brand-400">2022 – 2026</span>
+                    </div>
+                    <p class="text-xs text-slate-300">
+                        Egyptian Korean University for Industrial Technology and Energy / Beni Suef Technological University<br>
+                        <b>Specialization:</b> Software Engineering
+                    </p>
+                </div>
+
+                <!-- Technical Skills -->
+                <div class="space-y-3">
+                    <h2 class="text-sm font-bold text-white uppercase tracking-wider text-brand-400 border-b border-slate-800 pb-1">Technical Skills & Tooling</h2>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+                        <div><b>Medical IT:</b> Millensys PACS, RIS, DICOM Modality Worklists, Orthanc, Siemens/Toshiba imaging support.</div>
+                        <div><b>Backend & DB:</b> PHP, Laravel, Blade, MySQL, PostgreSQL, Supabase, Python, Django, C++, Java, REST APIs.</div>
+                        <div><b>Infrastructure & Network:</b> Veeam Backup & Replication, Windows Server, Linux, Point-to-Point Wireless, Firewalls.</div>
+                        <div><b>QA & Tools:</b> Manual & Automated Testing, Bug Tracking, Git/GitHub, n8n Automation, Postman, VS Code.</div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Modal Footer (no-print) -->
+            <div class="p-4 border-t border-slate-800 flex items-center justify-between bg-slate-950/80 no-print">
+                <span class="text-xs text-slate-400">Zeyad Yasser CV • Ready to download or print</span>
+                <div class="flex items-center gap-3">
+                    <button onclick="closeCvModal()" class="px-4 py-2 rounded-xl text-xs font-semibold text-slate-400 hover:text-white">Close</button>
+                    <a href="https://wa.me/201024474059?text=Hello%20Zeyad,%20I%20reviewed%20your%20CV%20and%20would%20like%20to%20discuss%20an%20opportunity." target="_blank" class="px-4 py-2 rounded-xl text-xs font-bold text-white bg-emerald-600 hover:bg-emerald-500 transition">
+                        Chat on WhatsApp
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT: DATA & INTERACTIONS -->
+    <script>
+        // Full catalog of all 21 repositories from https://github.com/ZeyadR5?tab=repositories
+        const projectsData = [
+            {
+                id: 1,
+                name: "HMS_Graduation_project",
+                title: "Hospital Management System (Graduation Project)",
+                category: "medical",
+                categoryLabel: "Medical IT & EHR",
+                language: "PHP",
+                tech: ["PHP", "MySQL", "Tailwind CSS", "JavaScript", "HTML5"],
+                description: "Comprehensive healthcare graduation project digitizing hospital departments, clinical outpatient records, triage, pharmacy inventory, lab results, and patient billing.",
+                image: "./hms.jpg",
+                repoUrl: "https://github.com/ZeyadR5/HMS_Graduation_project",
+                liveUrl: null,
+                featured: true
+            },
+            {
+                id: 2,
+                name: "Pacs",
+                title: "PACS - Picture Archiving & Communication System",
+                category: "medical",
+                categoryLabel: "Medical IT & Radiology",
+                language: "Laravel / Blade",
+                tech: ["Laravel", "Blade", "PHP", "DICOM", "MySQL"],
+                description: "Medical diagnostic imaging archive allowing radiology centers to ingest, catalog, and stream DICOM studies (MRI, CT, X-Ray) securely to radiologist diagnostic workstations.",
+                image: null,
+                icon: "🩻",
+                repoUrl: "https://github.com/ZeyadR5/Pacs",
+                liveUrl: null,
+                featured: true
+            },
+            {
+                id: 3,
+                name: "RIS",
+                title: "RIS - Radiology Information System",
+                category: "medical",
+                categoryLabel: "Medical IT & Radiology",
+                language: "JavaScript",
+                tech: ["JavaScript", "PHP", "REST APIs", "Tailwind CSS"],
+                description: "Specialized clinical workflow system for radiology centers to manage patient scheduling, exam orders, radiologist report transcription, and digital result delivery.",
+                image: null,
+                icon: "📋",
+                repoUrl: "https://github.com/ZeyadR5/RIS",
+                liveUrl: null,
+                featured: true
+            },
+            {
+                id: 4,
+                name: "MRI",
+                title: "Medical MRI Imaging Center Operations",
+                category: "medical",
+                categoryLabel: "Medical IT",
+                language: "PHP",
+                tech: ["PHP", "Laravel", "MySQL", "Bootstrap"],
+                description: "Dedicated clinical portal designed for MRI imaging facilities to schedule scanning timeslots, log contrast agent administration, and track safety questionnaires.",
+                image: null,
+                icon: "🧲",
+                repoUrl: "https://github.com/ZeyadR5/MRI",
+                liveUrl: null
+            },
+            {
+                id: 5,
+                name: "Worklist",
+                title: "DICOM Modality Worklist (MWL) Engine",
+                category: "medical",
+                categoryLabel: "Medical IT Protocols",
+                language: "PHP",
+                tech: ["PHP", "DICOM", "TCP/IP Networking", "MySQL"],
+                description: "DICOM Modality Worklist server integration bridging clinical orders to imaging modalities, preventing manual demographic entry on scanners and human typing errors.",
+                image: null,
+                icon: "🔄",
+                repoUrl: "https://github.com/ZeyadR5/Worklist",
+                liveUrl: null
+            },
+            {
+                id: 6,
+                name: "Dr_manag",
+                title: "Doctor Clinic & Patient Management",
+                category: "medical",
+                categoryLabel: "Medical Practice",
+                language: "Laravel / Blade",
+                tech: ["Laravel", "Blade", "PHP", "MySQL"],
+                description: "Specialized platform for outpatient clinics managing patient appointments, electronic medical records (EMR), prescription printing, and revenue tracking.",
+                image: null,
+                icon: "🩺",
+                repoUrl: "https://github.com/ZeyadR5/Dr_manag",
+                liveUrl: null
+            },
+            {
+                id: 7,
+                name: "Hotel-Reservation-System",
+                title: "Hotel Reservation & Management Engine",
+                category: "management",
+                categoryLabel: "Enterprise Management",
+                language: "PHP",
+                tech: ["PHP", "Tailwind CSS", "JavaScript", "MySQL"],
+                description: "Full hotel booking and front-desk management system. Supports live room inventory search, dynamic seasonal pricing, check-in/out records, and guest payments.",
+                image: "./hotel.jpg",
+                repoUrl: "https://github.com/ZeyadR5/Hotel-Reservation-System",
+                liveUrl: null,
+                featured: true
+            },
+            {
+                id: 8,
+                name: "HR_System",
+                title: "Enterprise Human Resources (HR) System",
+                category: "management",
+                categoryLabel: "Enterprise Systems",
+                language: "Laravel / Blade",
+                tech: ["Laravel", "Blade", "PHP", "MySQL", "Tailwind CSS"],
+                description: "Comprehensive corporate human resources platform tracking employee profiles, department hierarchies, payroll calculations, attendance records, and leave requests.",
+                image: null,
+                icon: "👥",
+                repoUrl: "https://github.com/ZeyadR5/HR_System",
+                liveUrl: null,
+                featured: true
+            },
+            {
+                id: 9,
+                name: "Real_state",
+                title: "Real Estate & Property Listing Platform",
+                category: "management",
+                categoryLabel: "Commercial Systems",
+                language: "Laravel / Blade",
+                tech: ["Laravel", "Blade", "PHP", "MySQL", "Tailwind CSS"],
+                description: "Full real estate brokerage portal featuring interactive property listings, geolocation filters, photo galleries, agent contact channels, and buyer inquiry forms.",
+                image: null,
+                icon: "🏢",
+                repoUrl: "https://github.com/ZeyadR5/Real_state",
+                liveUrl: null
+            },
+            {
+                id: 10,
+                name: "att_ZKo",
+                title: "Smart Attendance & Shift Tracking System",
+                category: "management",
+                categoryLabel: "Enterprise Systems",
+                language: "PHP",
+                tech: ["PHP", "MySQL", "JavaScript", "Tailwind CSS"],
+                description: "Workplace time and attendance monitoring software generating automated daily shift logs, punctuality metrics, overtime calculations, and exportable payroll reports.",
+                image: null,
+                icon: "⏱️",
+                repoUrl: "https://github.com/ZeyadR5/att_ZKo",
+                liveUrl: null
+            },
+            {
+                id: 11,
+                name: "Manage_Student_Training",
+                title: "Student Industrial Training Portal",
+                category: "management",
+                categoryLabel: "Academic & Training",
+                language: "HTML / JS",
+                tech: ["HTML5", "Tailwind CSS", "JavaScript", "Responsive UI"],
+                description: "Interactive academic training management portal designed for university coordinators and students to register, monitor field internships, and submit evaluations.",
+                image: null,
+                icon: "🎓",
+                repoUrl: "https://github.com/ZeyadR5/Manage_Student_Training",
+                liveUrl: "https://zeyadr5.github.io/Manage_Student_Training/"
+            },
+            {
+                id: 12,
+                name: "Hospital_Management_System",
+                title: "Hospital Operations & Clinic Portal Core",
+                category: "medical",
+                categoryLabel: "Medical Systems",
+                language: "PHP",
+                tech: ["PHP", "MySQL", "Tailwind CSS", "JavaScript"],
+                description: "Modular digital hospital operations suite handling patient admission files, doctor clinic queues, medication dispensing, and ward management.",
+                image: "./hms.jpg",
+                repoUrl: "https://github.com/ZeyadR5/Hospital_Management_System",
+                liveUrl: null
+            },
+            {
+                id: 13,
+                name: "Children_speech_problems",
+                title: "Assistive Platform for Children with Speech Needs",
+                category: "frontend",
+                categoryLabel: "Special Needs Education",
+                language: "HTML / JS",
+                tech: ["HTML5", "Tailwind CSS", "JavaScript", "Audio Web APIs"],
+                description: "Interactive assistive education web app engineered for children with speech and speech articulation difficulties, utilizing audiovisual cues, games, and phonics.",
+                image: "./kids.jpg",
+                repoUrl: "https://github.com/ZeyadR5/Children_speech_problems",
+                liveUrl: "https://zeyadr5.github.io/Children_speech_problems/",
+                featured: true
+            },
+            {
+                id: 14,
+                name: "Onlin-Trining-Css-Html",
+                title: "Online Fitness & Coaching Platform",
+                category: "frontend",
+                categoryLabel: "Health & Fitness UI",
+                language: "CSS / HTML",
+                tech: ["HTML5", "CSS3", "Flexbox", "Responsive Design"],
+                description: "Modern fitness coaching and workout planning platform showcasing personalized gym routines, nutrition plans, video guides, and client success stories.",
+                image: "./Online_Coaching.jpg",
+                repoUrl: "https://github.com/ZeyadR5/Onlin-Trining-Css-Html",
+                liveUrl: "https://zeyadr5.github.io/Onlin-Trining-Css-Html/"
+            },
+            {
+                id: 15,
+                name: "Cosmic-Watch",
+                title: "Cosmic Watch — NASA Space Apps Challenge",
+                category: "hackathon",
+                categoryLabel: "NASA Space Apps Hackathon",
+                language: "JavaScript",
+                tech: ["JavaScript", "HTML5", "CSS3", "NASA Open APIs"],
+                description: "Aerospace visualization and near-Earth astronomical object tracking web application created during the NASA Space Apps Cairo hackathon challenge.",
+                image: null,
+                icon: "🚀",
+                repoUrl: "https://github.com/ZeyadR5/Cosmic-Watch",
+                liveUrl: "https://zeyadr5.github.io/Cosmic-Watch/",
+                featured: true
+            },
+            {
+                id: 16,
+                name: "skylines",
+                title: "Skylines Modern Architectural Showcase",
+                category: "frontend",
+                categoryLabel: "Modern Web App",
+                language: "JavaScript",
+                tech: ["JavaScript", "Modern Web", "Vercel", "CSS3"],
+                description: "High-end urban skylines and architectural project showcase featuring dark glassmorphism, responsive grid layouts, and micro-interactions.",
+                image: null,
+                icon: "🏙️",
+                repoUrl: "https://github.com/ZeyadR5/skylines",
+                liveUrl: "https://skylines-eight.vercel.app"
+            },
+            {
+                id: 17,
+                name: "Viora-portfolio",
+                title: "Viora Creative Agency Showcase",
+                category: "frontend",
+                categoryLabel: "Agency Portfolio",
+                language: "HTML / CSS",
+                tech: ["HTML5", "CSS3", "JavaScript", "AOS Animations"],
+                description: "Modern brand and creative studio portfolio template built with modern layout principles, smooth scroll animations, and interactive client testimonials.",
+                image: null,
+                icon: "✨",
+                repoUrl: "https://github.com/ZeyadR5/Viora-portfolio",
+                liveUrl: "https://zeyadr5.github.io/Viora-portfolio/"
+            },
+            {
+                id: 18,
+                name: "Project_iD",
+                title: "Project Identity & Student ID Card Engine",
+                category: "frontend",
+                categoryLabel: "Identity Management",
+                language: "HTML / JS",
+                tech: ["HTML5", "Tailwind CSS", "JavaScript"],
+                description: "Digital identification card generator and student identity verification interface with live badge rendering and QR code identity preview.",
+                image: null,
+                icon: "🪪",
+                repoUrl: "https://github.com/ZeyadR5/Project_iD",
+                liveUrl: "https://zeyadr5.github.io/Project_iD/"
+            },
+            {
+                id: 19,
+                name: "Depi",
+                title: "DEPI Software Testing & QA Repository",
+                category: "hackathon",
+                categoryLabel: "Quality Assurance",
+                language: "HTML / QA",
+                tech: ["Manual Testing", "Test Cases", "Bug Reports", "HTML5"],
+                description: "Official software quality assurance projects, comprehensive test plans, edge-case matrices, and defect lifecycle reports completed under Egypt Digital Pioneers Initiative.",
+                image: null,
+                icon: "🧪",
+                repoUrl: "https://github.com/ZeyadR5/Depi",
+                liveUrl: null
+            },
+            {
+                id: 20,
+                name: "Nasa-Space-Apps-Cairo",
+                title: "NASA Space Apps Cairo Solution",
+                category: "hackathon",
+                categoryLabel: "Space & Aerospace",
+                language: "PHP / JS",
+                tech: ["PHP", "JavaScript", "Tailwind CSS", "APIs"],
+                description: "Backend API and data processing solution submitted for the international NASA Space Apps Cairo hackathon, analyzing atmospheric and space sensor data.",
+                image: null,
+                icon: "🛰️",
+                repoUrl: "https://github.com/ZeyadR5/Nasa-Space-Apps-Cairo",
+                liveUrl: null
+            },
+            {
+                id: 21,
+                name: "Portfolio",
+                title: "Zeyad Yasser Official Developer Portfolio",
+                category: "frontend",
+                categoryLabel: "Personal Showcase",
+                language: "HTML / Tailwind",
+                tech: ["HTML5", "Tailwind CSS", "JavaScript", "Responsive Design"],
+                description: "Official personal portfolio highlighting IT systems leadership, medical imaging technology, software engineering capabilities, and comprehensive GitHub repositories.",
+                image: null,
+                icon: "⚡",
+                repoUrl: "https://github.com/ZeyadR5/Portfolio",
+                liveUrl: "https://zeyadr5.github.io/Portfolio/"
+            }
+        ];
+
+        let currentFilter = 'all';
+        let currentSearchQuery = '';
+
+        // Render projects grid
+        function renderProjects() {
+            const grid = document.getElementById('projects-grid');
+            const noMsg = document.getElementById('no-projects-msg');
+            
+            const filtered = projectsData.filter(proj => {
+                const matchesCategory = (currentFilter === 'all') || (proj.category === currentFilter);
+                const query = currentSearchQuery.toLowerCase();
+                const matchesSearch = !query || 
+                    proj.name.toLowerCase().includes(query) ||
+                    proj.title.toLowerCase().includes(query) ||
+                    proj.description.toLowerCase().includes(query) ||
+                    proj.language.toLowerCase().includes(query) ||
+                    proj.tech.some(t => t.toLowerCase().includes(query));
+                return matchesCategory && matchesSearch;
+            });
+
+            if (filtered.length === 0) {
+                grid.innerHTML = '';
+                noMsg.classList.remove('hidden');
+                return;
+            }
+
+            noMsg.classList.add('hidden');
+            grid.innerHTML = filtered.map(proj => {
+                const badgeColor = 
+                    proj.category === 'medical' ? 'bg-teal-950 text-teal-300 border-teal-800' :
+                    proj.category === 'management' ? 'bg-brand-950 text-brand-300 border-brand-800' :
+                    proj.category === 'hackathon' ? 'bg-amber-950 text-amber-300 border-amber-800' :
+                    'bg-indigo-950 text-indigo-300 border-indigo-800';
+
+                return `
+                    <div class="glass-card rounded-2xl overflow-hidden flex flex-col justify-between group">
+                        
+                        <!-- Top visual / Image or Tech Banner -->
+                        <div class="relative h-44 bg-slate-900 border-b border-slate-800/80 overflow-hidden flex items-center justify-center">
+                            ${proj.image ? `
+                                <img src="${proj.image}" alt="${proj.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-transparent to-transparent"></div>
+                            ` : `
+                                <div class="absolute inset-0 bg-gradient-to-br from-slate-900 to-slate-950 flex flex-col items-center justify-center p-6 text-center">
+                                    <div class="text-4xl mb-2">${proj.icon || '💻'}</div>
+                                    <div class="text-xs font-mono text-slate-400 font-bold uppercase tracking-wider">${proj.name}</div>
+                                </div>
+                            `}
+                            
+                            <!-- Category Badge -->
+                            <div class="absolute top-3 left-3">
+                                <span class="px-2.5 py-1 rounded-md text-[10px] font-bold uppercase tracking-wider border ${badgeColor}">
+                                    ${proj.categoryLabel}
+                                </span>
+                            </div>
+
+                            <!-- Language Pill -->
+                            <div class="absolute top-3 right-3">
+                                <span class="px-2 py-0.5 rounded-full text-[10px] font-mono font-semibold bg-slate-950/80 text-slate-300 border border-slate-700/80">
+                                    ${proj.language}
+                                </span>
+                            </div>
+                        </div>
+
+                        <!-- Content Body -->
+                        <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                            <div>
+                                <h3 class="text-base font-bold text-white group-hover:text-brand-400 transition-colors line-clamp-1">
+                                    ${proj.title}
+                                </h3>
+                                <p class="text-xs text-slate-400 mt-2 leading-relaxed line-clamp-3">
+                                    ${proj.description}
+                                </p>
+                            </div>
+
+                            <!-- Tech tags -->
+                            <div>
+                                <div class="flex flex-wrap gap-1.5 pt-2">
+                                    ${proj.tech.map(t => `
+                                        <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-slate-800 text-slate-300 border border-slate-700/60">
+                                            ${t}
+                                        </span>
+                                    `).join('')}
+                                </div>
+
+                                <!-- Action Buttons -->
+                                <div class="flex items-center gap-2 pt-5 border-t border-slate-800/80 mt-4">
+                                    ${proj.liveUrl ? `
+                                        <a href="${proj.liveUrl}" target="_blank" class="flex-1 text-center py-2 px-3 rounded-xl bg-brand-600 hover:bg-brand-500 text-white text-xs font-bold transition flex items-center justify-center gap-1.5">
+                                            <span>Live Demo</span>
+                                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                                        </a>
+                                    ` : ''}
+                                    
+                                    <a href="${proj.repoUrl}" target="_blank" class="${proj.liveUrl ? 'flex-1' : 'w-full'} text-center py-2 px-3 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-200 text-xs font-bold transition flex items-center justify-center gap-1.5">
+                                        <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.302 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577v-2.234c-3.338.724-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.09-.745.083-.729.083-.729 1.205.084 1.84 1.238 1.84 1.238 1.07 1.834 2.809 1.304 3.495.997.108-.774.417-1.304.76-1.604-2.665-.3-5.466-1.334-5.466-5.93 0-1.31.467-2.382 1.235-3.222-.124-.303-.535-1.523.116-3.176 0 0 1.008-.322 3.3 1.23a11.48 11.48 0 013.004-.404c1.02.005 2.046.138 3.004.404 2.292-1.552 3.3-1.23 3.3-1.23.652 1.653.241 2.873.118 3.176.77.84 1.234 1.912 1.234 3.222 0 4.609-2.804 5.625-5.476 5.92.43.37.823 1.102.823 2.222v3.293c0 .322.218.694.825.576C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+                                        <span>GitHub Code</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // Filter button setup
+        function setupFilters() {
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    filterBtns.forEach(b => {
+                        b.classList.remove('active', 'bg-brand-600', 'text-white');
+                        b.classList.add('bg-slate-800', 'text-slate-300');
+                    });
+                    btn.classList.add('active', 'bg-brand-600', 'text-white');
+                    btn.classList.remove('bg-slate-800', 'text-slate-300');
+                    currentFilter = btn.getAttribute('data-filter');
+                    renderProjects();
+                });
+            });
+
+            // Search input setup
+            const searchInput = document.getElementById('project-search');
+            searchInput.addEventListener('input', (e) => {
+                currentSearchQuery = e.target.value.trim();
+                renderProjects();
+            });
+        }
+
+        function filterProjectsByCategory(category) {
+            const btn = document.querySelector(`.filter-btn[data-filter="${category}"]`);
+            if (btn) {
+                btn.click();
+                const section = document.getElementById('projects');
+                if (section) section.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        // CV Modal controls
+        function openCvModal() {
+            const modal = document.getElementById('cv-modal');
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeCvModal() {
+            const modal = document.getElementById('cv-modal');
+            modal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeCvModal();
+        });
+
+        // Close when clicking modal backdrop
+        document.getElementById('cv-modal').addEventListener('click', (e) => {
+            if (e.target.id === 'cv-modal') closeCvModal();
+        });
+
+        // Toast Helper
+        function copyToClipboard(text, message) {
+            navigator.clipboard.writeText(text).then(() => {
+                showToast(message || 'Copied to clipboard!');
+            });
+        }
+
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toast-message');
+            toastMsg.textContent = message;
+            toast.classList.remove('translate-y-24', 'opacity-0');
+            toast.classList.add('translate-y-0', 'opacity-100');
+            setTimeout(() => {
+                toast.classList.add('translate-y-24', 'opacity-0');
+                toast.classList.remove('translate-y-0', 'opacity-100');
+            }, 3000);
+        }
+
+        // Contact Form Handler
+        function handleContactSubmit(event) {
+            event.preventDefault();
+            const submitter = event.submitter;
+            const action = submitter ? submitter.value : 'whatsapp';
+            
+            const name = document.getElementById('form-name').value.trim();
+            const contact = document.getElementById('form-contact').value.trim();
+            const subject = document.getElementById('form-subject').value.trim() || 'Portfolio Inquiry';
+            const message = document.getElementById('form-message').value.trim();
+
+            if (action === 'whatsapp') {
+                const text = `*New Portfolio Inquiry*%0A%0A*Name:* ${encodeURIComponent(name)}%0A*Contact:* ${encodeURIComponent(contact)}%0A*Subject:* ${encodeURIComponent(subject)}%0A*Message:*%0A${encodeURIComponent(message)}`;
+                window.open(`https://wa.me/201024474059?text=${text}`, '_blank');
+            } else {
+                const mailBody = `Name: ${name}\nContact: ${contact}\n\nMessage:\n${message}`;
+                window.location.href = `mailto:zeyady2233@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(mailBody)}`;
+            }
+
+            showToast('Opening contact channel...');
+        }
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+        }
+
+        // Bilingual Toggle (EN / عربي)
+        let isArabic = false;
+        const langToggleBtn = document.getElementById('lang-toggle-btn');
+        const langLabel = document.getElementById('lang-label');
+
+        if (langToggleBtn) {
+            langToggleBtn.addEventListener('click', () => {
+                isArabic = !isArabic;
+                document.documentElement.dir = isArabic ? 'rtl' : 'ltr';
+                document.documentElement.lang = isArabic ? 'ar' : 'en';
+                langLabel.textContent = isArabic ? 'English' : 'عربي';
+
+                // Swap translated elements
+                document.querySelectorAll('[data-en][data-ar]').forEach(el => {
+                    el.textContent = isArabic ? el.getAttribute('data-ar') : el.getAttribute('data-en');
+                });
+
+                showToast(isArabic ? 'تم التحويل إلى اللغة العربية' : 'Switched to English');
+            });
+        }
+
+        // Initial setup on load
+        document.addEventListener('DOMContentLoaded', () => {
+            renderProjects();
+            setupFilters();
+        });
+    </script>
 </body>
-
 </html>
-
