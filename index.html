@@ -699,75 +699,108 @@
         </div>
     </section>
 
-    <!-- CONTACT SECTION (MATCHING ORIGINAL BLUE GRADIENT AESTHETIC) -->
-    <section id="contact" class="py-16 bg-gradient-to-br from-blue-50 to-blue-100">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-4xl font-bold text-center mb-12 text-blue-700" data-aos="fade-up">Contact Me</h2>
-            
-            <div class="grid md:grid-cols-2 gap-10">
-                
-                <!-- Contact Form -->
-                <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition duration-300 hover-grow" data-aos="fade-right">
-                    <form class="space-y-4" onsubmit="handleContactSubmit(event)">
-                        <div>
-                            <input type="text" id="form-name" required placeholder="Your Name" class="w-full p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-400 outline-none transition-all text-sm">
-                        </div>
-                        <div>
-                            <input type="text" id="form-phone" required placeholder="Your Phone or Email" class="w-full p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-400 outline-none transition-all text-sm">
-                        </div>
-                        <div>
-                            <input type="text" id="form-subject" placeholder="Subject / Opportunity" class="w-full p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-400 outline-none transition-all text-sm">
-                        </div>
-                        <div>
-                            <textarea id="form-message" rows="4" required placeholder="Your Message" class="w-full p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-400 outline-none transition-all text-sm"></textarea>
-                        </div>
-                        <div class="flex gap-2">
-                            <button type="submit" value="whatsapp" class="flex-1 bg-green-600 text-white p-3 rounded-lg hover:bg-green-700 transition font-semibold text-sm">
-                                Send to WhatsApp
-                            </button>
-                            <button type="submit" value="email" class="flex-1 bg-blue-600 text-white p-3 rounded-lg hover:bg-blue-700 transition font-semibold text-sm">
-                                Send to Email
-                            </button>
-                        </div>
-                    </form>
+    <!-- CONTACT SECTION (MODERN) -->
+    <style>
+        .contact-section { position: relative; overflow: hidden; background: linear-gradient(180deg, #f8fafc 0%, #eef2ff 100%); }
+        .contact-orb { position: absolute; border-radius: 9999px; filter: blur(80px); opacity: .45; pointer-events: none; }
+        .contact-card { background: rgba(255,255,255,.75); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border: 1px solid rgba(255,255,255,.9); box-shadow: 0 20px 50px -20px rgba(79,70,229,.25); border-radius: 1.5rem; }
+        .info-item { display: flex; align-items: center; gap: 1rem; padding: .9rem 1rem; border-radius: 1rem; background: #fff; border: 1px solid #eef2f7; transition: all .3s ease; }
+        .info-item:hover { transform: translateY(-3px); border-color: #c7d2fe; box-shadow: 0 14px 30px -14px rgba(79,70,229,.35); }
+        .info-icon { width: 2.75rem; height: 2.75rem; border-radius: .85rem; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: transform .3s ease; }
+        .info-item:hover .info-icon { transform: scale(1.1) rotate(-4deg); }
+        .modern-input { width: 100%; padding: .85rem 1rem; border-radius: .9rem; border: 1.5px solid #e5e7eb; background: #f9fafb; font-size: .9rem; color: #111827; outline: none; transition: all .25s ease; }
+        .modern-input:focus { background: #fff; border-color: #6366f1; box-shadow: 0 0 0 4px rgba(99,102,241,.12); }
+        .btn-grad { background: linear-gradient(135deg, #2563eb, #6366f1); color: #fff; transition: all .3s ease; box-shadow: 0 10px 25px -10px rgba(79,70,229,.7); }
+        .btn-grad:hover { transform: translateY(-2px); box-shadow: 0 16px 30px -10px rgba(79,70,229,.8); }
+        .btn-wa { background: linear-gradient(135deg, #16a34a, #22c55e); color: #fff; transition: all .3s ease; box-shadow: 0 10px 25px -10px rgba(22,163,74,.7); }
+        .btn-wa:hover { transform: translateY(-2px); box-shadow: 0 16px 30px -10px rgba(22,163,74,.8); }
+        .footer-modern { position: relative; background: #0b1120; }
+        .footer-modern::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, transparent, #3b82f6, #8b5cf6, transparent); }
+        .footer-link { width: 2.25rem; height: 2.25rem; border-radius: .7rem; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,.06); color: #94a3b8; transition: all .3s ease; }
+        .footer-link:hover { background: linear-gradient(135deg, #2563eb, #6366f1); color: #fff; transform: translateY(-3px); }
+    </style>
+    <section id="contact" class="contact-section py-20">
+        <div class="contact-orb" style="width:320px;height:320px;background:#93c5fd;top:-80px;left:-80px;"></div>
+        <div class="contact-orb" style="width:360px;height:360px;background:#c4b5fd;bottom:-100px;right:-80px;"></div>
+
+        <div class="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-12" data-aos="fade-up">
+                <span class="inline-block px-3 py-1 rounded-full bg-indigo-100 text-indigo-700 text-xs font-bold tracking-widest uppercase">Contact</span>
+                <h2 class="text-3xl sm:text-5xl font-extrabold text-gray-900 mt-4">Let's <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">work together</span></h2>
+                <p class="text-gray-600 mt-3 text-sm sm:text-base">Have an opportunity, a project, or an IT challenge? Send me a message and I'll get back to you quickly.</p>
+            </div>
+
+            <div class="grid lg:grid-cols-5 gap-8">
+
+                <!-- Contact Info -->
+                <div class="lg:col-span-2 space-y-3" data-aos="fade-right">
+                    <a href="https://wa.me/201024474059" target="_blank" class="info-item">
+                        <span class="info-icon bg-green-100 text-green-600">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.52 3.48A11.93 11.93 0 0012 0C5.38 0 0 5.38 0 12c0 2.11.55 4.14 1.6 5.93L0 24l6.28-1.64A11.93 11.93 0 0012 24c6.62 0 12-5.38 12-12 0-3.2-1.25-6.21-3.48-8.52zM12 22a9.93 9.93 0 01-5.1-1.39l-.36-.21-3.73.98 1-3.64-.24-.37A9.92 9.92 0 1122 12c0 5.52-4.48 10-10 10zm5.21-7.79c-.29-.15-1.72-.85-1.99-.94-.27-.1-.46-.15-.66.15-.19.29-.76.94-.93 1.14-.17.19-.34.21-.63.07-.29-.15-1.22-.45-2.32-1.44-.86-.77-1.44-1.72-1.61-2.01-.17-.29-.02-.45.13-.6.13-.13.29-.34.43-.51.14-.17.19-.29.29-.48.1-.19.05-.36-.02-.51-.07-.15-.66-1.59-.91-2.18-.24-.58-.49-.5-.66-.51h-.57c-.19 0-.51.07-.78.36-.27.29-1.02 1-1.02 2.44s1.05 2.83 1.19 3.02c.15.19 2.07 3.17 5.02 4.45.7.3 1.25.48 1.68.61.71.23 1.35.2 1.86.12.57-.09 1.72-.7 1.96-1.38.24-.67.24-1.24.17-1.38-.07-.13-.26-.21-.55-.36z"/></svg>
+                        </span>
+                        <span class="min-w-0">
+                            <span class="block text-xs text-gray-500 font-medium">WhatsApp</span>
+                            <span class="block text-sm font-bold text-gray-900">+20 102 447 4059</span>
+                        </span>
+                    </a>
+
+                    <a href="mailto:zeyady2233@gmail.com" class="info-item">
+                        <span class="info-icon bg-red-100 text-red-500">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20 4H4c-1.103 0-2 .897-2 2v12c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2V6c0-1.103-.897-2-2-2zm0 2l-8 5-8-5h16zm0 12H4V8l8 5 8-5v10z"/></svg>
+                        </span>
+                        <span class="min-w-0">
+                            <span class="block text-xs text-gray-500 font-medium">Email</span>
+                            <span class="block text-sm font-bold text-gray-900 truncate">zeyady2233@gmail.com</span>
+                        </span>
+                    </a>
+
+                    <a href="https://linkedin.com/in/zeyad-yasser-213312297" target="_blank" class="info-item">
+                        <span class="info-icon bg-blue-100 text-blue-600">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                        </span>
+                        <span class="min-w-0">
+                            <span class="block text-xs text-gray-500 font-medium">LinkedIn</span>
+                            <span class="block text-sm font-bold text-gray-900 truncate">zeyad-yasser-213312297</span>
+                        </span>
+                    </a>
+
+                    <a href="https://github.com/ZeyadR5" target="_blank" class="info-item">
+                        <span class="info-icon bg-gray-900 text-white">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.302 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577v-2.234c-3.338.724-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.09-.745.083-.729.083-.729 1.205.084 1.84 1.238 1.84 1.238 1.07 1.834 2.809 1.304 3.495.997.108-.774.417-1.304.76-1.604-2.665-.3-5.466-1.334-5.466-5.93 0-1.31.467-2.382 1.235-3.222-.124-.303-.535-1.523.116-3.176 0 0 1.008-.322 3.3 1.23a11.48 11.48 0 013.004-.404c1.02.005 2.046.138 3.004.404 2.292-1.552 3.3-1.23 3.3-1.23.652 1.653.241 2.873.118 3.176.77.84 1.234 1.912 1.234 3.222 0 4.609-2.804 5.625-5.476 5.92.43.37.823 1.102.823 2.222v3.293c0 .322.218.694.825.576C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+                        </span>
+                        <span class="min-w-0">
+                            <span class="block text-xs text-gray-500 font-medium">GitHub</span>
+                            <span class="block text-sm font-bold text-gray-900">github.com/ZeyadR5</span>
+                        </span>
+                    </a>
+
+                    <div class="info-item">
+                        <span class="info-icon bg-indigo-100 text-indigo-600">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a2 2 0 01-2.828 0l-4.243-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                        </span>
+                        <span class="min-w-0">
+                            <span class="block text-xs text-gray-500 font-medium">Location</span>
+                            <span class="block text-sm font-bold text-gray-900">Beni Suef, Egypt</span>
+                        </span>
+                    </div>
                 </div>
 
-                <!-- Get in Touch Card -->
-                <div class="bg-gradient-to-br from-blue-600 to-blue-800 text-white p-8 sm:p-10 rounded-2xl shadow-lg hover:shadow-2xl transition duration-300 hover-grow" data-aos="fade-left">
-                    <h3 class="text-2xl sm:text-3xl font-bold mb-6 border-b-2 border-blue-400 pb-3">Get in Touch</h3>
-                    <div class="space-y-5 text-base sm:text-lg">
-                        
-                        <!-- WhatsApp -->
-                        <a href="https://wa.me/201024474059" target="_blank" class="flex items-center space-x-4 hover:text-blue-200 transition">
-                            <svg class="w-7 h-7 text-green-400" fill="currentColor" viewBox="0 0 24 24"><path d="M20.52 3.48A11.93 11.93 0 0012 0C5.38 0 0 5.38 0 12c0 2.11.55 4.14 1.6 5.93L0 24l6.28-1.64A11.93 11.93 0 0012 24c6.62 0 12-5.38 12-12 0-3.2-1.25-6.21-3.48-8.52zM12 22a9.93 9.93 0 01-5.1-1.39l-.36-.21-3.73.98 1-3.64-.24-.37A9.92 9.92 0 1122 12c0 5.52-4.48 10-10 10zm5.21-7.79c-.29-.15-1.72-.85-1.99-.94-.27-.1-.46-.15-.66.15-.19.29-.76.94-.93 1.14-.17.19-.34.21-.63.07-.29-.15-1.22-.45-2.32-1.44-.86-.77-1.44-1.72-1.61-2.01-.17-.29-.02-.45.13-.6.13-.13.29-.34.43-.51.14-.17.19-.29.29-.48.1-.19.05-.36-.02-.51-.07-.15-.66-1.59-.91-2.18-.24-.58-.49-.5-.66-.51h-.57c-.19 0-.51.07-.78.36-.27.29-1.02 1-1.02 2.44s1.05 2.83 1.19 3.02c.15.19 2.07 3.17 5.02 4.45.7.3 1.25.48 1.68.61.71.23 1.35.2 1.86.12.57-.09 1.72-.7 1.96-1.38.24-.67.24-1.24.17-1.38-.07-.13-.26-.21-.55-.36z"/></svg>
-                            <span class="font-medium">WhatsApp: +20 102 447 4059</span>
-                        </a>
-
-                        <!-- Gmail -->
-                        <a href="mailto:zeyady2233@gmail.com" class="flex items-center space-x-4 hover:text-blue-200 transition">
-                            <svg class="w-7 h-7 text-red-400" fill="currentColor" viewBox="0 0 24 24"><path d="M20 4H4c-1.103 0-2 .897-2 2v12c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2V6c0-1.103-.897-2-2-2zm0 2l-8 5-8-5h16zm0 12H4V8l8 5 8-5v10z"/></svg>
-                            <span class="font-medium">zeyady2233@gmail.com</span>
-                        </a>
-
-                        <!-- LinkedIn -->
-                        <a href="https://linkedin.com/in/zeyad-yasser-213312297" target="_blank" class="flex items-center space-x-4 hover:text-blue-200 transition">
-                            <svg class="w-7 h-7 text-blue-300" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-                            <span class="font-medium">linkedin.com/in/zeyad-yasser-213312297</span>
-                        </a>
-
-                        <!-- GitHub -->
-                        <a href="https://github.com/ZeyadR5" target="_blank" class="flex items-center space-x-4 hover:text-blue-200 transition">
-                            <svg class="w-7 h-7 text-gray-200" fill="currentColor" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.302 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577v-2.234c-3.338.724-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.09-.745.083-.729.083-.729 1.205.084 1.84 1.238 1.84 1.238 1.07 1.834 2.809 1.304 3.495.997.108-.774.417-1.304.76-1.604-2.665-.3-5.466-1.334-5.466-5.93 0-1.31.467-2.382 1.235-3.222-.124-.303-.535-1.523.116-3.176 0 0 1.008-.322 3.3 1.23a11.48 11.48 0 013.004-.404c1.02.005 2.046.138 3.004.404 2.292-1.552 3.3-1.23 3.3-1.23.652 1.653.241 2.873.118 3.176.77.84 1.234 1.912 1.234 3.222 0 4.609-2.804 5.625-5.476 5.92.43.37.823 1.102.823 2.222v3.293c0 .322.218.694.825.576C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
-                            <span class="font-medium">github.com/ZeyadR5</span>
-                        </a>
-
-                        <!-- Phone -->
-                        <div class="flex items-center space-x-4">
-                            <svg class="w-7 h-7 text-blue-300" fill="currentColor" viewBox="0 0 24 24"><path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.19a1 1 0 011.02-.24l4.28 1.04a1 1 0 01.51.95V20.5a1.5 1.5 0 01-1.5 1.5C9.94 22 3 14.06 3 5.5 3 4.67 3.67 4 4.5 4h2.41a1 1 0 01.95.51l1.04 4.28a1 1 0 01-.24 1.02l-2.19 2.2z"/></svg>
-                            <span class="font-medium">+20 102 447 4059 (01024474059)</span>
+                <!-- Contact Form -->
+                <div class="lg:col-span-3 contact-card p-6 sm:p-8" data-aos="fade-left">
+                    <h3 class="text-xl font-bold text-gray-900 mb-1">Send a message</h3>
+                    <p class="text-xs text-gray-500 mb-5">Fill in the form and choose how you'd like to send it.</p>
+                    <form class="space-y-4" onsubmit="handleContactSubmit(event)">
+                        <div class="grid sm:grid-cols-2 gap-4">
+                            <input type="text" id="form-name" required placeholder="Your Name" class="modern-input">
+                            <input type="text" id="form-phone" required placeholder="Your Phone or Email" class="modern-input">
                         </div>
-
-                    </div>
+                        <input type="text" id="form-subject" placeholder="Subject / Opportunity" class="modern-input">
+                        <textarea id="form-message" rows="5" required placeholder="Your Message" class="modern-input" style="resize:none;"></textarea>
+                        <div class="flex flex-col sm:flex-row gap-3 pt-1">
+                            <button type="submit" value="whatsapp" class="btn-wa flex-1 px-5 py-3 rounded-xl font-bold text-sm">Send to WhatsApp</button>
+                            <button type="submit" value="email" class="btn-grad flex-1 px-5 py-3 rounded-xl font-bold text-sm">Send to Email</button>
+                        </div>
+                    </form>
                 </div>
 
             </div>
@@ -775,19 +808,26 @@
     </section>
 
     <!-- FOOTER -->
-    <footer class="bg-gray-900 text-gray-400 py-8 text-center text-xs">
-        <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+    <footer class="footer-modern text-gray-400 py-10 text-xs">
+        <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="flex items-center gap-3">
+                <img src="./logo.png" alt="Logo" class="h-7 w-auto invert filter brightness-200">
+                <div class="text-left">
+                    <div class="font-bold text-white text-sm">Zeyad Yasser</div>
+                    <div class="text-gray-500">IT Team Leader &amp; Laravel Developer</div>
+                </div>
+            </div>
+            <div class="text-gray-500 text-center">&copy; 2026 Zeyad Yasser Abdallah Oweis. All rights reserved.</div>
             <div class="flex items-center gap-2">
-                <img src="./logo.png" alt="Logo" class="h-6 w-auto invert filter brightness-200">
-                <span class="font-bold text-white">Zeyad Yasser Portfolio</span>
-            </div>
-            <div>
-                © 2026 Zeyad Yasser Abdallah Oweis. All rights reserved.
-            </div>
-            <div class="flex gap-4">
-                <a href="https://github.com/ZeyadR5" target="_blank" class="hover:text-white">GitHub</a>
-                <a href="https://linkedin.com/in/zeyad-yasser-213312297" target="_blank" class="hover:text-white">LinkedIn</a>
-                <a href="#About" class="hover:text-white">Top ↑</a>
+                <a href="https://github.com/ZeyadR5" target="_blank" aria-label="GitHub" class="footer-link">
+                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.302 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577v-2.234c-3.338.724-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.09-.745.083-.729.083-.729 1.205.084 1.84 1.238 1.84 1.238 1.07 1.834 2.809 1.304 3.495.997.108-.774.417-1.304.76-1.604-2.665-.3-5.466-1.334-5.466-5.93 0-1.31.467-2.382 1.235-3.222-.124-.303-.535-1.523.116-3.176 0 0 1.008-.322 3.3 1.23a11.48 11.48 0 013.004-.404c1.02.005 2.046.138 3.004.404 2.292-1.552 3.3-1.23 3.3-1.23.652 1.653.241 2.873.118 3.176.77.84 1.234 1.912 1.234 3.222 0 4.609-2.804 5.625-5.476 5.92.43.37.823 1.102.823 2.222v3.293c0 .322.218.694.825.576C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+                </a>
+                <a href="https://linkedin.com/in/zeyad-yasser-213312297" target="_blank" aria-label="LinkedIn" class="footer-link">
+                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                </a>
+                <a href="#About" aria-label="Back to top" class="footer-link">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"/></svg>
+                </a>
             </div>
         </div>
     </footer>
